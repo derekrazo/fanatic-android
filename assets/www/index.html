@@ -49,37 +49,37 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false">
+					<a href="#" data-ajax="false" data-transition="slide">
 					   <i class='icon-envelope'></i>
 					   Compose
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false">
+					<a href="#" data-ajax="false" data-transition="slide">
 					   <i class='icon-qrcode'></i>
 					   Scan A Fan
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false">
+					<a href="#" data-ajax="false" data-transition="slide">
 					   <i class='icon-group'></i>
 					   Fans &amp; Groups
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false">
+					<a href="#" data-ajax="false" data-transition="slide">
 					   <i class='icon-gift'></i>
 					   Rewards
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false">
+					<a href="#" data-ajax="false" data-transition="slide">
 					   <i class='icon-signin'></i>
 					   Fan Sign-In
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false">
+					<a href="#" data-ajax="false" data-transition="slide">
 					   <i class='icon-bar-chart'></i>
 					   Fanalytics
 					</a>
@@ -120,12 +120,14 @@
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="submitEventForm" type="button" data-theme="b" onclick="submitEventForm()">
-                                    Submit
+                                <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
+                                Submit
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <a href="#dashboard" data-role="button">Cancel</a>
+                                <a href="#dashboard" data-role="button" data-transition="slide">
+                                Cancel
+                                </a>
                             </div>
                         </fieldset>
                     </li>
@@ -136,7 +138,11 @@
 
     </div>
     
-    
+    <script>
+        function submitEvent() {
+            alert("submit clicked");
+        }
+    </script>
     
     
     </body>

@@ -147,8 +147,8 @@
             var location = document.getElementById("eventLocation").value;
             var venue = document.getElementById("eventVenue").value;
             var tour = document.getElementById("eventTour").value;
-                        
-            if !((name == '') | (location == '') | (venue = '')) {
+                                    
+            if (!((name == '') || (location == '') || (venue = ''))) {
                 newEventObj['name'] = name;
                 newEventObj['location'] = location;
                 newEventObj['venue'] = venue;

@@ -27,13 +27,15 @@
     </head>
     <body>
         
+    <!-- Dashboard -->
     <div data-role="page" data-theme='b'>
 
 		<!--
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="http://nativedroid.godesign.ch/" data-ajax="false" target="_blank"><i class='icon-globe'></i></a>
             <h1>nativeDroid v0.1</h1>
-        </div>-->
+        </div>
+        -->
         
         <div data-role="content">   
 	
@@ -41,92 +43,89 @@
 			<ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
 	            <!--<li data-role="list-divider">Demos</li>-->
 	            <li >
-					<a href="#text" data-ajax="true" data-transition="slide"><i class='icon-calendar'></i> Create New Event</a>
+					<a href="#newEventForm" data-ajax="true" data-transition="slide">
+					   <i class='icon-calendar'></i>
+					   Create New Event
+					</a>
 	            </li>
 	            <li>
-					<a href="tables.html" data-ajax="false"><i class='icon-table'></i> Compose</a>
+					<a href="#" data-ajax="false">
+					   <i class='icon-table'></i>
+					   Compose
+					</a>
 	            </li>
 	            <li>
-					<a href="dialogsnpopups.html" data-ajax="false"><i class='icon-external-link'></i> Scan A Fan</a>
+					<a href="#" data-ajax="false">
+					   <i class='icon-external-link'></i>
+					   Scan A Fan
+					</a>
 	            </li>
 	            <li>
-					<a href="panels.html" data-ajax="false"><i class='icon-tasks'></i> Fans &amp; Groups</a>
+					<a href="#" data-ajax="false">
+					   <i class='icon-tasks'></i>
+					   Fans &amp; Groups
+					</a>
 	            </li>
 	            <li>
-					<a href="autocomplete.html" data-ajax="false"><i class='icon-filter'></i> Rewards</a>
+					<a href="#" data-ajax="false">
+					   <i class='icon-filter'></i>
+					   Rewards
+					</a>
 	            </li>
 	            <li>
-					<a href="collapsible.html" data-ajax="false"><i class='icon-chevron-up'></i> Fan Sign-In</a>
+					<a href="#" data-ajax="false">
+					   <i class='icon-chevron-up'></i>
+					   Fan Sign-In
+					</a>
 	            </li>
 	            <li>
-					<a href="accordions.html" data-ajax="false"><i class='icon-chevron-right'></i> Fanalytics</a>
+					<a href="#" data-ajax="false">
+					   <i class='icon-chevron-right'></i>
+					   Fanalytics
+					</a>
 	            </li>
 	        </ul>
         </div>
 
     </div>
     
-    <div data-role="page" data-theme='b' id="text">
+    
+    <!-- New Event Screen -->
+    <div id="newEventForm" data-role="page" data-theme='b' id="text">
 
         <div data-role="content">   
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    
+                    <li data-role="fieldcontain">
+                        <label for="eventName">Event Name:</label>
+                        <input type="text" name="eventName" id="eventName" value="" data-clear-btn="true" placeholder="">
+                    </li>
 
+                    <li data-role="fieldcontain">
+                        <label for="eventLocation">Location Label:</label>
+                        <input type="text" name="eventLocation" id="eventLocation" value="" data-clear-btn="true" placeholder="">
+                    </li>
 
-        <div class='inset'>
-            <h1>Lorem ipsum</h1>
-            <h2>Dolor sit amet.</h2>        
-            <h3>This is a h3-tag</h3>
-            <h4>This is a h4-tag</h4>
-            <h5>This is a h5-tag</h5>
-            <h6>and finally the h6-tag</h6>
-            <p>Lorem Ipsum is simply dummy <code>text of the printing and typesetting industry</code>. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-			<p><code>Writing some Code is pretty easy with the &lt;code&gt;-element.</code></p>			
-			<div class='message warning'>
-				<i class='icon-warning-sign'></i>
-				<p>This is a warning Message.</p>
-			</div>
-			<div class='message info'>
-				<i class='icon-lightbulb'></i>
-				<p>This is an info note.</p>
-			</div>
-			<div class='message error'>
-				<i class='icon-exclamation-sign'></i>
-				<p>This is an error message that goes over two lines on a mobile device in portrait mode.</p>
-			</div>
-			<div class='message success'>
-				<i class='icon-ok'></i>
-				<p>This is a success message.</p>
-			</div>
-        </div> 
-        
-        <hr />  
+                    <li data-role="fieldcontain">
+                        <label for="eventVenue">Venue Address:</label>
+                        <input type="text" name="eventVenue" id="eventVenue" value="" data-clear-btn="true" placeholder="">
+                    </li>
+                
+                    <li data-role="fieldcontain">
+                        <label for="eventTour">Tour Name:</label>
+                        <input type="text" name="eventTour" id="eventTour" value="" data-clear-btn="true" placeholder="">
+                    </li>   
 
-        <div class='inset'>
-            <h1>Code examples</h1>
-			<h2>Headings (1-6)</h2>
-			<p>You can simply use the default <code>&lt;h1&gt;</code> until <code>&lt;h6&gt;</code>-Tag.</p>
-			<h2>Paragraph</h2>
-			<p>You can simply use the default <code>&lt;p&gt;</code>-Tag.</p>
-			<h2>Code</h2>
-			<h3>Inline-Code:</h3>
-			<p><code>&lt;code&gt; .classname &lt;/code&gt;</code> </p>
-			<h3>Multiline-Code:</h3>
-			<p><pre>&lt;pre&gt;<br />&ensp;foo = bar;<br />&lt;/pre&gt;</pre></p>
-			<h2>Messages</h2>
-			<h3>Example</h3>
-			
-			<div class='message warning'>
-				<i class='icon-warning-sign'></i>
-				<p>This is a warning Message.</p>
-			</div>
+                    <li>
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-b"><button type="submit" data-theme="b">Submit</button></div>
+                            <div class="ui-block-a"><button type="submit" data-theme="b">Cancel</button></div>
+                        </fieldset>
+                    </li>
 
-			<p><pre>&lt;div class='message warning'&gt;<br />&ensp;&lt;i class='icon-warning-sign'&gt;&lt;/i&gt;<br />&ensp;&lt;p&gt;This is a warning Message&lt;/p&gt;<br />&lt;/div&gt;</pre></p>
-			<h3>Styling Classes</h3>
-			<p>Info: <code>.info</code></p>
-			<p>Success: <code>.success</code></p>
-			<p>Warning: <code>.warning</code></p>
-			<p>Error: <code>.error</code></p>
-		</div>	        
-	        
+                </ul>
+            </form>         
         </div>
 
     </div>

@@ -121,9 +121,10 @@
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <!--<button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">-->
-                                <a href="#confirmEventForm" data-role="button" data-transition="slide"> Submit </a>
-                                <!--</button>-->
+                                <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
+                                    <!--<a href="#confirmEventForm" data-role="button" data-transition="slide">-->
+                                    Submit
+                                </button>
                             </div>
                             <div class="ui-block-b">
                                 <a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse">
@@ -195,7 +196,6 @@
         var newEventObj = {};
         
         function submitEvent() {
-
             var name = document.getElementById("eventName").value;
             var location = document.getElementById("eventLocation").value;
             var venue = document.getElementById("eventVenue").value;
@@ -206,11 +206,14 @@
                 newEventObj.location = location;
                 newEventObj.venue = venue;
                 newEventObj.tour = tour;
+                window.location = "#confirmEventForm";
             } else {
                 alert('required fields! (change into dialog later)');
             }
             
         }
+        
+        function stub() {}
     </script>
 
     </body>

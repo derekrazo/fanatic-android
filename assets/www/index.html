@@ -99,37 +99,38 @@
                 <ul data-role="listview" data-inset="true">
                     
                     <li data-role="fieldcontain">
-                        <label for="eventName">Event Name:</label>
-                        <input type="text" name="eventName" id="eventName" value="" data-clear-btn="true" placeholder="">
+                        <label for="eventFormName">Event Name:</label>
+                        <input type="text" name="eventFormName" id="eventFormName" value="" data-clear-btn="true" placeholder="">
                     </li>
 
                     <li data-role="fieldcontain">
-                        <label for="eventLocation">Location Label:</label>
-                        <input type="text" name="eventLocation" id="eventLocation" value="" data-clear-btn="true" placeholder="">
+                        <label for="eventFormLocation">Location Label:</label>
+                        <input type="text" name="eventFormLocation" id="eventFormLocation" value="" data-clear-btn="true" placeholder="">
                     </li>
 
                     <li data-role="fieldcontain">
-                        <label for="eventVenue">Venue Address:</label>
-                        <input type="text" name="eventVenue" id="eventVenue" value="" data-clear-btn="true" placeholder="">
+                        <label for="eventFormVenue">Venue Address:</label>
+                        <input type="text" name="eventFormVenue" id="eventFormVenue" value="" data-clear-btn="true" placeholder="">
                     </li>
                 
                     <li data-role="fieldcontain">
-                        <label for="eventTour">Tour Name:</label>
-                        <input type="text" name="eventTour" id="eventTour" value="" data-clear-btn="true" placeholder="">
+                        <label for="eventFormTour">Tour Name:</label>
+                        <input type="text" name="eventFormTour" id="eventFormTour" value="" data-clear-btn="true" placeholder="">
                     </li>   
 
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
                                 <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
-                                    <!--<a href="#confirmEventForm" data-role="button" data-transition="slide">-->
+                                    <!--<a href="#confirmEventForm" data-role="button" data-transition="slide"></a>-->
                                     Submit
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse">
-                                Cancel
-                                </a>
+                                <button id="cancelEventForm" type="button" data-theme="b" onclick="cancelEvent()">
+                                    <!--<a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse"></a>-->
+                                    Cancel
+                                </button>
                             </div>
                         </fieldset>
                     </li>
@@ -154,22 +155,22 @@
                     
                     <li >
                         <label>Event Name:</label>
-                        <p>My Concert!</p>
+                        <p id="eventConfirmName">My Concert!</p>
                     </li>
 
                     <li >
                         <label>Location Label:</label>
-                        <p>Bay Area</p>
+                        <p id="eventConfirmLocation">Bay Area</p>
                     </li>
 
                     <li >
                         <label>Venue Address:</label>
-                        <p>Hipster Cafe</p>
+                        <p id="eventConfirmVenue">Hipster Cafe</p>
                     </li>
                 
                     <li >
                         <label>Tour Name:</label>
-                        <p>Bay Area Hipster Roundup</p>
+                        <p id="eventConfirmTour">Bay Area Hipster Roundup</p>
                     </li>
 
                     <li>
@@ -196,21 +197,38 @@
         var newEventObj = {};
         
         function submitEvent() {
-            var name = document.getElementById("eventName").value;
-            var location = document.getElementById("eventLocation").value;
-            var venue = document.getElementById("eventVenue").value;
-            var tour = document.getElementById("eventTour").value;
+            var name = document.getElementById("eventFormName").value;
+            var location = document.getElementById("eventFormLocation").value;
+            var venue = document.getElementById("eventFormVenue").value;
+            var tour = document.getElementById("eventFormTour").value;
+            
 
-            if (!((name == '') || (location == '') || (venue = ''))) {
+            if (!((name == '') || (location == '') || (venue == ''))) {
+                      
+                /*        
                 newEventObj.name = name;
                 newEventObj.location = location;
                 newEventObj.venue = venue;
                 newEventObj.tour = tour;
+                */
+                
+                document.getElementById("eventConfirmName").innerHTML = name;
+                document.getElementById("eventConfirmLocation").innerHTML = location;
+                document.getElementById("eventConfirmVenue").innerHTML = venue;
+                document.getElementById("eventConfirmTour").innerHTML = tour;
+                                
                 window.location = "#confirmEventForm";
             } else {
                 alert('required fields! (change into dialog later)');
             }
-            
+        }
+        
+        function cancelEvent() {
+            document.getElementById("eventFormName").value = '';
+            document.getElementById("eventFormLocation").value = '';
+            document.getElementById("eventFormVenue").value = '';
+            document.getElementById("eventFormTour").value = '';
+            window.location = "#dashboard";
         }
         
         function stub() {}

@@ -149,11 +149,11 @@
             var venue = document.getElementById("eventVenue").value;
             var tour = document.getElementById("eventTour").value;
 
-            if !((name == '') || (location == '') || (venue = '')) {
-                newEventObj['name'] = name;
-                newEventObj['location'] = location;
-                newEventObj['venue'] = venue;
-                newEventObj['tour'] = tour;
+            if (!((name == '') || (location == '') || (venue = ''))) {
+                newEventObj.name = name;
+                newEventObj.location = location;
+                newEventObj.venue = venue;
+                newEventObj.tour = tour;
             } else {
                 alert('required fields! (change into dialog later)');
             }

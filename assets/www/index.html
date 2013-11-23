@@ -50,7 +50,7 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false" data-transition="slide">
+					<a href="#" data-ajax="true" data-transition="slide">
 					   <i class='icon-envelope'></i>
 					   Compose
 					</a>
@@ -121,12 +121,12 @@
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
-                                Submit
-                                </button>
+                                <!--<button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">-->
+                                <a href="#confirmEventForm" data-role="button" data-transition="slide"> Submit </a>
+                                <!--</button>-->
                             </div>
                             <div class="ui-block-b">
-                                <a href="#dashboard" data-role="button" data-transition="slide">
+                                <a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse">
                                 Cancel
                                 </a>
                             </div>
@@ -139,16 +139,17 @@
 
     </div>
     
-    <script>
+    <script type="text/javascript">
         var newEventObj = {};
         
         function submitEvent() {
+
             var name = document.getElementById("eventName").value;
             var location = document.getElementById("eventLocation").value;
             var venue = document.getElementById("eventVenue").value;
             var tour = document.getElementById("eventTour").value;
-                        
-            if !((name == '') | (location == '') | (venue = '')) {
+
+            if !((name == '') || (location == '') || (venue = '')) {
                 newEventObj['name'] = name;
                 newEventObj['location'] = location;
                 newEventObj['venue'] = venue;
@@ -159,7 +160,109 @@
             
         }
     </script>
-    
-    
+
+
+    <!-- Confirm Event Screen -->
+    <div id="confirmEventForm" data-role="page" data-theme='b'>
+
+        <div data-role="content">   
+                
+                <div class='message success'>
+                    <i class='icon-ok'></i>
+                    <p>This is a success message.</p>
+                </div>
+
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    
+                    <li >
+                        <label>Event Name:</label>
+                        <p>My Concert!</p>
+                    </li>
+
+                    <li >
+                        <label>Location Label:</label>
+                        <p>Bay Area</p>
+                    </li>
+
+                    <li >
+                        <label>Venue Address:</label>
+                        <p>Hipster Cafe</p>
+                    </li>
+                
+                    <li >
+                        <label>Tour Name:</label>
+                        <p>Bay Area Hipster Roundup</p>
+                    </li>
+
+                    <li>
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <button id="confirmEventForm" data-role="button" data-theme="b" onclick="">
+                                Confirm
+                                </button>
+                            </div>
+                            <div class="ui-block-b">
+                                <a href="#newEventForm" data-role="button" data-transition="slide" data-direction="reverse">
+                                Cancel
+                                </a>
+                            </div>
+                        </fieldset>
+                    </li>
+
+                </ul>
+            </form>         
+        </div>
+
+    </div>
+
+     <!-- Confirm Event Screen -->
+    <div id="eventconfirmed" data-role="page" data-theme='b'>
+
+        <div data-role="content">   
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    
+                    <li >
+                        <label>Event Name:</label>
+                        <p>My Concert!</p>
+                    </li>
+
+                    <li >
+                        <label>Location Label:</label>
+                        <p>Bay Area</p>
+                    </li>
+
+                    <li >
+                        <label>Venue Address:</label>
+                        <p>Hipster Cafe</p>
+                    </li>
+                
+                    <li >
+                        <label>Tour Name:</label>
+                        <p>Bay Area Hipster Roundup</p>
+                    </li>
+
+                    <li>
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <button id="confirmEventForm" data-role="button" data-theme="b" onclick="">
+                                Confirm
+                                </button>
+                            </div>
+                            <div class="ui-block-b">
+                                <a href="#newEventForm" data-role="button" data-transition="slide" data-direction="reverse">
+                                Cancel
+                                </a>
+                            </div>
+                        </fieldset>
+                    </li>
+
+                </ul>
+            </form>         
+        </div>
+
+    </div>
+
     </body>
 </html>

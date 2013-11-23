@@ -14,11 +14,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+                
         mWebView = (WebView) findViewById(R.id.webview);
         mWebView.setWebViewClient(new AppClient());
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.loadUrl("file:///android_asset/www/index.html");
+        
+        
     }
 
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -139,34 +139,10 @@
 
     </div>
     
-    <script type="text/javascript">
-        var newEventObj = {};
-        
-        function submitEvent() {
-
-            var name = document.getElementById("eventName").value;
-            var location = document.getElementById("eventLocation").value;
-            var venue = document.getElementById("eventVenue").value;
-            var tour = document.getElementById("eventTour").value;
-
-            if (!((name == '') || (location == '') || (venue = ''))) {
-                newEventObj.name = name;
-                newEventObj.location = location;
-                newEventObj.venue = venue;
-                newEventObj.tour = tour;
-            } else {
-                alert('required fields! (change into dialog later)');
-            }
-            
-        }
-    </script>
-
-
     <!-- Confirm Event Screen -->
     <div id="confirmEventForm" data-role="page" data-theme='b'>
 
         <div data-role="content">   
-                
                 <div class='message success'>
                     <i class='icon-ok'></i>
                     <p>This is a success message.</p>
@@ -213,56 +189,29 @@
                 </ul>
             </form>         
         </div>
-
     </div>
+    
+    <script type="text/javascript">
+        var newEventObj = {};
+        
+        function submitEvent() {
 
-     <!-- Confirm Event Screen -->
-    <div id="eventconfirmed" data-role="page" data-theme='b'>
+            var name = document.getElementById("eventName").value;
+            var location = document.getElementById("eventLocation").value;
+            var venue = document.getElementById("eventVenue").value;
+            var tour = document.getElementById("eventTour").value;
 
-        <div data-role="content">   
-            <form>
-                <ul data-role="listview" data-inset="true">
-                    
-                    <li >
-                        <label>Event Name:</label>
-                        <p>My Concert!</p>
-                    </li>
-
-                    <li >
-                        <label>Location Label:</label>
-                        <p>Bay Area</p>
-                    </li>
-
-                    <li >
-                        <label>Venue Address:</label>
-                        <p>Hipster Cafe</p>
-                    </li>
-                
-                    <li >
-                        <label>Tour Name:</label>
-                        <p>Bay Area Hipster Roundup</p>
-                    </li>
-
-                    <li>
-                        <fieldset class="ui-grid-a">
-                            <div class="ui-block-a">
-                                <button id="confirmEventForm" data-role="button" data-theme="b" onclick="">
-                                Confirm
-                                </button>
-                            </div>
-                            <div class="ui-block-b">
-                                <a href="#newEventForm" data-role="button" data-transition="slide" data-direction="reverse">
-                                Cancel
-                                </a>
-                            </div>
-                        </fieldset>
-                    </li>
-
-                </ul>
-            </form>         
-        </div>
-
-    </div>
+            if (!((name == '') || (location == '') || (venue = ''))) {
+                newEventObj.name = name;
+                newEventObj.location = location;
+                newEventObj.venue = venue;
+                newEventObj.tour = tour;
+            } else {
+                alert('required fields! (change into dialog later)');
+            }
+            
+        }
+    </script>
 
     </body>
 </html>

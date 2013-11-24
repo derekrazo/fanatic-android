@@ -50,37 +50,37 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="true" data-transition="slide">
+					<a href="#stub" data-ajax="true" data-transition="slide">
 					   <i class='icon-envelope'></i>
 					   Compose
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false" data-transition="slide">
+					<a href="#stub" data-ajax="false" data-transition="slide">
 					   <i class='icon-qrcode'></i>
 					   Scan A Fan
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false" data-transition="slide">
+					<a href="#stub" data-ajax="false" data-transition="slide">
 					   <i class='icon-group'></i>
 					   Fans &amp; Groups
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false" data-transition="slide">
+					<a href="#stub" data-ajax="false" data-transition="slide">
 					   <i class='icon-gift'></i>
 					   Rewards
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false" data-transition="slide">
+					<a href="#stub" data-ajax="false" data-transition="slide">
 					   <i class='icon-signin'></i>
 					   Fan Sign-In
 					</a>
 	            </li>
 	            <li>
-					<a href="#" data-ajax="false" data-transition="slide">
+					<a href="#stub" data-ajax="false" data-transition="slide">
 					   <i class='icon-bar-chart'></i>
 					   Fanalytics
 					</a>
@@ -125,9 +125,10 @@
                     </li>   
 
                     <li>
-                        <p id="eventFormIncomplete" style="display:none; color:red;">
-                            Please complete required fields
-                        </p>
+                       <div id="eventFormIncomplete" class="message error" style="display:none;">
+                            <i class='icon-exclamation-sign'></i>
+                            <p>Please complete required fields.</p>
+                        </div>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
                                 <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
@@ -205,6 +206,14 @@
                 </ul>
             </form>         
         </div>
+    </div>
+    
+    <!-- Not implemented yet stub page. Delete later-->
+    <div id="stub" data-role="page" data-theme='b'>
+        <div data-role="content">   
+        <div class='inset'>
+            <h1>This feature is not implemented yet</h1>
+        </div></div>
     </div>
     
     <script type="text/javascript">

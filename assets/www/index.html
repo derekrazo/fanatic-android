@@ -100,22 +100,28 @@
                     
                     <li data-role="fieldcontain">
                         <label for="eventFormName">Event Name:</label>
-                        <input type="text" name="eventFormName" id="eventFormName" value="" data-clear-btn="true" placeholder="">
+                        <input type="text" name="eventFormName" id="eventFormName" value="" data-clear-btn="true" placeholder="required">
+                    </li>
+
+                    <!--Can't see what type="date" is doing, leaving it as text for now -->
+                    <li data-role="fieldcontain">
+                        <label for="eventFormDate">Event Date:</label>
+                        <input type="text" name="eventFormDate" id="eventFormDate" value="" data-clear-btn="true" placeholder="required">
                     </li>
 
                     <li data-role="fieldcontain">
                         <label for="eventFormLocation">Location Label:</label>
-                        <input type="text" name="eventFormLocation" id="eventFormLocation" value="" data-clear-btn="true" placeholder="">
+                        <input type="text" name="eventFormLocation" id="eventFormLocation" value="" data-clear-btn="true" placeholder="required">
                     </li>
 
                     <li data-role="fieldcontain">
                         <label for="eventFormVenue">Venue Address:</label>
-                        <input type="text" name="eventFormVenue" id="eventFormVenue" value="" data-clear-btn="true" placeholder="">
+                        <input type="text" name="eventFormVenue" id="eventFormVenue" value="" data-clear-btn="true" placeholder="required">
                     </li>
                 
                     <li data-role="fieldcontain">
                         <label for="eventFormTour">Tour Name:</label>
-                        <input type="text" name="eventFormTour" id="eventFormTour" value="" data-clear-btn="true" placeholder="">
+                        <input type="text" name="eventFormTour" id="eventFormTour" value="" data-clear-btn="true" placeholder="optional">
                     </li>   
 
                     <li>
@@ -157,6 +163,11 @@
                         <label>Event Name:</label>
                         <p id="eventConfirmName">My Concert!</p>
                     </li>
+                    
+                    <li >
+                        <label>Event Date:</label>
+                        <p id="eventConfirmDate">January 1, 2000</p>
+                    </li>
 
                     <li >
                         <label>Location Label:</label>
@@ -196,14 +207,24 @@
     <script type="text/javascript">
         var eventsDB = {};
         
+        function EventObj(name, date, location, venue) {
+            this.name = name;
+            this.date = date;
+            this.location = location;
+            this.venue = venue;
+            this.tour = '';
+        }
+        
         function submitEvent() {
             var name = document.getElementById("eventFormName").value;
+            var date = document.getElementById("eventFormDate").value;
             var location = document.getElementById("eventFormLocation").value;
             var venue = document.getElementById("eventFormVenue").value;
             var tour = document.getElementById("eventFormTour").value;
             
-            if (!((name == '') || (location == '') || (venue == ''))) {        
+            if (!((name == '') || (date == '') || (location == '') || (venue == ''))) {        
                 document.getElementById("eventConfirmName").innerHTML = name;
+                document.getElementById("eventConfirmDate").innerHTML = date;
                 document.getElementById("eventConfirmLocation").innerHTML = location;
                 document.getElementById("eventConfirmVenue").innerHTML = venue;
                 document.getElementById("eventConfirmTour").innerHTML = tour;
@@ -216,6 +237,7 @@
         
         function cancelEvent() {
             document.getElementById("eventFormName").value = '';
+            document.getElementById("eventFormDate").value = '';      
             document.getElementById("eventFormLocation").value = '';
             document.getElementById("eventFormVenue").value = '';
             document.getElementById("eventFormTour").value = '';
@@ -223,6 +245,7 @@
         }
         
         function createEvent() {
+            
         }
         
     </script>

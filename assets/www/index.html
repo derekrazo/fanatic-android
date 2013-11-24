@@ -176,12 +176,12 @@
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="confirmEventForm" data-role="button" data-theme="b" onclick="">
+                                <button id="confirmEventForm" data-role="button" data-theme="b" onclick="createEvent()">
                                 Confirm
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <a href="#newEventForm" data-role="button" data-transition="slide" data-direction="reverse">
+                                <a href="#newEventForm" data-role="button" data-direction="reverse">
                                 Cancel
                                 </a>
                             </div>
@@ -194,7 +194,7 @@
     </div>
     
     <script type="text/javascript">
-        var newEventObj = {};
+        var eventsDB = {};
         
         function submitEvent() {
             var name = document.getElementById("eventFormName").value;
@@ -202,16 +202,7 @@
             var venue = document.getElementById("eventFormVenue").value;
             var tour = document.getElementById("eventFormTour").value;
             
-
-            if (!((name == '') || (location == '') || (venue == ''))) {
-                      
-                /*        
-                newEventObj.name = name;
-                newEventObj.location = location;
-                newEventObj.venue = venue;
-                newEventObj.tour = tour;
-                */
-                
+            if (!((name == '') || (location == '') || (venue == ''))) {        
                 document.getElementById("eventConfirmName").innerHTML = name;
                 document.getElementById("eventConfirmLocation").innerHTML = location;
                 document.getElementById("eventConfirmVenue").innerHTML = venue;
@@ -231,7 +222,9 @@
             window.location = "#dashboard";
         }
         
-        function stub() {}
+        function createEvent() {
+        }
+        
     </script>
 
     </body>

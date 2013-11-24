@@ -125,6 +125,9 @@
                     </li>   
 
                     <li>
+                        <p id="eventFormIncomplete" style="display:none; color:red;">
+                            Please complete required fields
+                        </p>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
                                 <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
@@ -228,10 +231,11 @@
                 document.getElementById("eventConfirmLocation").innerHTML = location;
                 document.getElementById("eventConfirmVenue").innerHTML = venue;
                 document.getElementById("eventConfirmTour").innerHTML = tour;
-                                
+                         
+                document.getElementById("eventFormIncomplete").style.display = "none";                
                 window.location = "#confirmEventForm";
             } else {
-                alert('required fields! (change into dialog later)');
+                document.getElementById("eventFormIncomplete").style.display = "block";
             }
         }
         

@@ -24,6 +24,8 @@
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+        <script src="js/nativedroid.script.js"></script>
+
     
     </head>
     <body>
@@ -155,9 +157,9 @@
     <div id="confirmEventForm" data-role="page" data-theme='b'>
 
         <div data-role="content">   
-                <div class='message success'>
-                    <i class='icon-ok'></i>
-                    <p>This is a success message.</p>
+                <div class='message warning'>
+                    <i class='icon-question-sign'></i>
+                    <p>Is this info correct?</p>
                 </div>
 
             <form>
@@ -191,13 +193,13 @@
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="confirmEventForm" data-role="button" data-theme="b" onclick="createEvent()">
+                                <a href="#eventPage" data-role="button" data-direction="reverse">
                                 Confirm
-                                </button>
+                                </a>
                             </div>
                             <div class="ui-block-b">
                                 <a href="#newEventForm" data-role="button" data-direction="reverse">
-                                Cancel
+                                Edit
                                 </a>
                             </div>
                         </fieldset>
@@ -207,7 +209,67 @@
             </form>         
         </div>
     </div>
-    
+
+    <div id="eventPage" data-role="page" data-theme='b'>
+
+        <div data-role="content">  
+                <img src="http://btenc7unnvpdjzve.zippykid.netdna-cdn.com/wp-content/uploads/2012/01/google-map.jpg" width="device-width" height="200px" style="margin: 0px 0px 0px 6px;" >
+                </img>
+
+                <ul data-nativedroid-plugin='cards'>
+
+                    <li data-cards-type='text'>
+                        <h5>Name of Event</h5>
+                        <p><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
+                        <p><small>Venue Name</small></p>
+                        <p><small>33 Post st, San Francisco, 94108</small></p>
+                    </li>
+
+                    <li data-cards-type='text'>
+                        <h1>Default Card</h1>
+                        <h2>Subtitle of a default card</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec sapien eu lorem condimentum mollis vel vel mauris.Proin dolor libero, ultricies quis semper eu, bibendum nec quam. Sed pellentesque, nunc vitae ornare tempus, turpis nisl aliquam nisl, vel faucibus neque magna eu odio. Fusce venenatis sem vitae arcu lacinia tincidunt. Quisque ornare sollicitudin mauris, adipiscing auctor magna commodo vel. Praesent ipsum diam, feugiat ut vulputate eget, congue id lorem. Mauris sollicitudin venenatis aliquam. Aliquam interdum orci a orci posuere fermentum. Vestibulum placerat tristique sem, eu pretium nisl feugiat in. Phasellus non mi mi. Proin porta metus in nulla fringilla non adipiscing risus ullamcorper.
+                        </p>
+                    </li>
+
+                </ul>
+
+                <!--
+                <div id="basicInfo">
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <h5>Name of Event</h5>
+                        </li>
+
+                        <li>
+                            <p><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
+                            <p><small>Venue Name</small></p>
+                            <p><small>33 Post st, San Francisco, 94108</small></p>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div>
+
+                <div id="eventDescription">
+                    
+                    <ul data-role="listview" data-inset="true">
+                    
+                        <li >
+                            <label>Description:</label>
+                            <p id="eventDescription">yeah!</p>
+                        </li>
+
+                    </ul>
+
+                </div>
+            -->
+        </div> 
+    </div>
+
+
     <!-- Not implemented yet stub page. Delete later-->
     <div id="stub" data-role="page" data-theme='b'>
         <div data-role="content">   
@@ -257,10 +319,17 @@
             window.location = "#dashboard";
         }
         
-        function createEvent() {
-            
-        }
         
+        
+    </script>
+
+    <script type="text/javascript">
+        function createEvent() {
+            //window.location = "#Dashboard";
+            alert("hi"); 
+        }
+
+
     </script>
 
     </body>

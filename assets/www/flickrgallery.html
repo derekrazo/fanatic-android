@@ -25,53 +25,49 @@
 
 
     </head>
-    <body>
+    <body data-nativedroid-progress-animation='6'>
         
     <div data-role="page" data-theme='b'>
 
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
-            <h1>Collapsible</h1>
+            <h1>FlickrGallery</h1>
         </div>
         
-        <div data-role="content">   
+        <div data-role="content">  
+        	 
+<!--
+			USING FLICKR FOR YOUR GALLERY
+			------------------------------	
+	
+			GET PUBLIC PHOTOS ORDERED BY interestingness-desc
+			----
+			
+ 			<ul data-nativedroid-plugin='flickr'
+				data-nativedroid-flickr-apikey='YOUR_API_KEY_HERE'
+				data-nativedroid-flickr-cat='photos'
+				data-nativedroid-flickr-method='search'
+				data-nativedroid-flickr-parameter="user_id=49253686@N04&per_page=48&extras=description,date_upload,geo,views,url_sq,url_l,url_t&sort=interestingness-desc"
+			></ul>
 
-	    <div data-role="collapsible" data-content-theme="b">
-            <h4>Collapsible Listview</h4>
-            <ul data-role="listview">
-                <li><a href="#">Lorem ipsum dolor</a></li>
-                <li><a href="#">sit amet</a></li>
-                <li><a href="#">consectetur adipisicing</a></li>
-                <li><a href="#">elit sed do eiusmod</a></li>
-                <li><a href="#">tempor incididunt.</a></li>
-            </ul>
-        </div>
+			GET A PHOTOSET LIST BY USER
+			----
 
-	    <div data-role="collapsible" data-content-theme="b">
-            <h4>Collapsible Content</h4>
-			<div class='inset'>
-				<h4>Wow, thats cool.</h4>
-				<p>Im a collapsible content.</p>
-				<div class='message success'>
-					<i class='icon-ok'></i>
-					<p>This is a success message.</p>
-				</div>
-			</div>
-        </div>
+			<ul data-role='listview'
+				data-nativedroid-plugin='flickr'
+				data-nativedroid-flickr-apikey='YOUR_API_KEY_HERE'
+				data-nativedroid-flickr-cat='photosets'
+				data-nativedroid-flickr-method='getList'
+				data-nativedroid-flickr-parameter="user_id=49253686@N04"
+			></ul>
+						
+			 -->
 
-
-        <div class='inset'>
-
-            <h2>Code</h2>
-			<pre>&lt;div data-role='collapsible' data-content-theme='b'&gt;<br/>&ensp;&lt;h4&gt;Heading&lt;/h4&gt;<br />&ensp;&lt;div&gt;Any content&lt;/div&gt;<br />&lt;/div&gt;</pre>
-        
-        </div>
-	        
-	        
         </div>
 
     </div>
     
+    <script src="js/nativedroid.script.js"></script>
     </body>
 </html>

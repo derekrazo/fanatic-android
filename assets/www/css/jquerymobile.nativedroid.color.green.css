@@ -18,9 +18,6 @@
 
 .ui-body-b form .ui-btn-down-b,.ui-body-b form .ui-mini.ui-checkbox-on,.ui-body-b form .ui-mini.ui-radio-on {
 	background-color: #99cc00;
-	border-top: 1px solid #b6db49;
-	border-bottom: 1px solid #b6db49;
-	box-shadow: 0px 0px 1px 3px #b6db49;
 }
 
 .ui-body-b div.ui-input-text.ui-focus:after{background-color: #99cc00;}
@@ -31,7 +28,7 @@ textarea.ui-body-b.ui-input-text:focus {
 	border: 1px solid #99cc00;
 }
 
-.ui-body-b .ui-link,.ui-body-b .ui-li a {
+.ui-body-b .ui-link,.ui-body-b .ui-li a,.nativeDroidCards ul[data-nativedroid-plugin="twitter"] a {
 	color: #99cc00;
 }
 
@@ -51,4 +48,11 @@ textarea.ui-body-b.ui-input-text:focus {
 
 .ui-slider-bg.ui-btn-active {
 	background-color: #b6db49;
+}
+
+progress::-webkit-progress-value {
+	background-color: #99cc00;
+}
+progress::-moz-progress-bar {
+	background-color: #99cc00;
 }

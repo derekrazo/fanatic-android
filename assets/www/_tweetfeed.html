@@ -25,53 +25,36 @@
 
 
     </head>
-    <body>
+    <body data-nativedroid-progress-animation='6'>
         
     <div data-role="page" data-theme='b'>
 
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="index.html" data-ajax="false"><i class='icon-ellipsis-vertical'></i></a>
-            <h1>Collapsible</h1>
+            <h1>TweetFeed</h1>
         </div>
         
         <div data-role="content">   
 
-	    <div data-role="collapsible" data-content-theme="b">
-            <h4>Collapsible Listview</h4>
-            <ul data-role="listview">
-                <li><a href="#">Lorem ipsum dolor</a></li>
-                <li><a href="#">sit amet</a></li>
-                <li><a href="#">consectetur adipisicing</a></li>
-                <li><a href="#">elit sed do eiusmod</a></li>
-                <li><a href="#">tempor incididunt.</a></li>
-            </ul>
-        </div>
 
-	    <div data-role="collapsible" data-content-theme="b">
-            <h4>Collapsible Content</h4>
-			<div class='inset'>
-				<h4>Wow, thats cool.</h4>
-				<p>Im a collapsible content.</p>
-				<div class='message success'>
-					<i class='icon-ok'></i>
-					<p>This is a success message.</p>
-				</div>
+<!--			<ul data-role='listview'
+				data-nativedroid-plugin='twitter'
+				data-nativedroid-twitter-type='search'
+				data-nativedroid-twitter-get='{"q":"jquery","rpp":"10","result_type":"recent"}'
+				data-nativedroid-twitter-refresh='auto'
+				data-nativedroid-maxitems='5'
+				data-nativedroid-progress='true'
+				class='delayedFadeIn'></ul> -->
+			<div class='contentInset'>
+				<p>Twitter API v1 has gone. So try to use: <a href='https://dev.twitter.com/docs/embedded-timelines'>Embedded-timelines</a></p>
 			</div>
-        </div>
 
-
-        <div class='inset'>
-
-            <h2>Code</h2>
-			<pre>&lt;div data-role='collapsible' data-content-theme='b'&gt;<br/>&ensp;&lt;h4&gt;Heading&lt;/h4&gt;<br />&ensp;&lt;div&gt;Any content&lt;/div&gt;<br />&lt;/div&gt;</pre>
-        
-        </div>
-	        
 	        
         </div>
 
     </div>
     
+    <script src="js/nativedroid.script.js"></script>
     </body>
 </html>

@@ -11,12 +11,11 @@
 	color: #FFFFFF;
 }
 
-
 .ui-bar-b.ui-header {
 
 }
 
-.ui-header.ui-bar-b {
+.ui-header.ui-bar-b,.ui-footer.ui-bar-b {
 	background-color: #000000;
 }
 
@@ -41,6 +40,7 @@
 
 .ui-btn-hover-b .ui-btn-inner,.ui-btn-hover-b .ui-btn-text .ui-link-inherit {
 	color: rgba(255,255,255,0.8);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 .ui-header .ui-btn-down-b .ui-btn-inner {
@@ -69,23 +69,24 @@
 
 .ui-body-b form .ui-btn,.ui-body-b form .ui-mini.ui-checkbox-off,.ui-body-b form .ui-mini.ui-radio-off {
 	background-color: #282828;
-	border-top: 1px solid #444444;
-	border-bottom: 1px solid #061110;
+	border-top: 1px solid rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	border-right: 1px solid rgba(0,0,0,0.2);
 	font-weight: 400;
 }
 
 .ui-body-b form .ui-checkbox-off,.ui-body-b form .ui-checkbox-on,.ui-body-b form .ui-radio-off,.ui-body-b form .ui-radio-on {
 	background: transparent;
-	border-top: 1px solid rgba(0,0,0,0.01);
-	border-bottom: 1px solid rgba(255,255,255,0.05);
+	border-top: 1px solid rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(0,0,0,0.6);
+	border-right: 1px solid rgba(0,0,0,0.2);
 }
 .ui-body-b form .ui-mini.ui-checkbox-on,.ui-body-b form .ui-mini.ui-radio-on {
 	box-shadow: none;
 }
 
-.ui-popup.ui-body-b,.ui-dialog.ui-body-b {
-	background: none;
-	background-color: #FFFFFF;
+.ui-popup.ui-body-b,.ui-dialog.ui-body-b,.ui-popup.ui-content, .ui-popup .ui-content {
+	background: linear-gradient(to bottom, rgb(2,2,2) 0%,rgb(2,2,2) 100%);
 }
 
 .ui-popup.ui-body-b {
@@ -150,7 +151,7 @@ textarea.ui-body-b.ui-input-text {
 }
 
 .ui-overlay-b {
-	background-color: rgba(0,0,0,0.8);
+	background-color: rgba(0,0,0,0.5);
 }
 
 .ui-collapsible-content.ui-body-b {
@@ -174,7 +175,7 @@ textarea.ui-body-b.ui-input-text {
 }
 
 .ui-body-b .ui-popup .ui-title{
-	padding: 7px 0px 7px 0px;
+	padding: 7px 7px 7px 7px;
 	margin: auto;	
 }
 
@@ -229,6 +230,34 @@ code,pre {
 	padding: 3px;
 }
 
+.nativeDroidCards > li {
+	border: 1px solid rgba(255,255,255,0.1);
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+	background-color: rgba(255,255,255,0.1);
+}
+
+.nativeDroidCards table td,.nativeDroidCards a {
+	border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.nativeDroidCards > li[data-cards-type="weather"] .week li {
+	border-right: 1px solid rgba(255,255,255,0.05);
+}
+
+
+.ui-footer.ui-bar-b {
+	border-bottom: 0px solid rgba(255,255,255,0.1);
+	border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.ui-footer .ui-block-a,.ui-footer .ui-block-b,.ui-footer .ui-block-c,.ui-footer .ui-block-d,.ui-footer .ui-block-e {
+	border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.ui-footer .ui-block-a,.ui-footer .ui-block-b,.ui-footer .ui-block-c,.ui-footer .ui-block-d,.ui-footer .ui-block-e {
+	border-right: 1px solid rgba(255,255,255,0.2);
+}
+
 @media all and (min-width: 768px){
 
 	.ui-body-b .showastabs.ui-listview {
@@ -255,13 +284,22 @@ code,pre {
     width: 6px;
 }
 ::-webkit-scrollbar-track {
-	background: rgba(255,255,255,0.1); 
+	background: rgba(255,255,255,0.3); 
 }
  ::-webkit-scrollbar-thumb {
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    background: rgba(255,255,255,0.3); 
+    background: rgba(255,255,255,0.1); 
 }
 ::-webkit-scrollbar-thumb:window-inactive {
-	background: rgba(255,255,255,0.1); 
+	background: rgba(255,255,255,0.3); 
+}
+
+progress::-webkit-progress-bar {
+	background: rgba(255,255,255,0.1);
+}
+
+
+progress {
+	background: rgba(255,255,255,0.1);
 }

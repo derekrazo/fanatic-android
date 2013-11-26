@@ -232,13 +232,13 @@
 
                                         <div class="ui-block-a">
                                             <button id="inviteFansButton" type="button" data-theme="b" onclick="toStub()">
-                                                Invite Fans
+                                                Edit
                                             </button>
                                         </div>
 
                                         <div class="ui-block-b">
                                             <button id="editEventButton" type="button" data-theme="b" onclick="toStub">
-                                                Add List
+                                                Fan Sign In
                                             </button>
                                         </div>
 
@@ -290,6 +290,15 @@
             }
         }
         
+        function clearEventForm() {
+            document.getElementById("eventFormName").value = '';
+            document.getElementById("eventFormDate").value = '';      
+            document.getElementById("eventFormLocation").value = '';
+            document.getElementById("eventFormVenue").value = '';
+            document.getElementById("eventFormTour").value = '';
+
+        }
+
         function cancelEvent() {
             document.getElementById("eventFormName").value = '';
             document.getElementById("eventFormDate").value = '';      
@@ -316,6 +325,8 @@
             document.getElementById("eventPageEventDate").innerHTML = date;
             document.getElementById("eventPageEventLocation").innerHTML = locations;
             document.getElementById("eventPageEventVenue").innerHTML = venue;
+
+            clearEventForm();
             
             /*
             alert(myNewEvent.name);

@@ -193,13 +193,13 @@
                     <li>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <a href="#eventPage" data-role="button" data-direction="reverse">
-                                Confirm
-                                </a>
+                                <button id="confirmButton" type="button" data-theme="b" onclick="newEvent()">
+                                    Confirm
+                                </button>
                             </div>
                             <div class="ui-block-b">
                                 <a href="#newEventForm" data-role="button" data-direction="reverse">
-                                Edit
+                                    Edit
                                 </a>
                             </div>
                         </fieldset>
@@ -217,55 +217,35 @@
                 </img>
 
                 <ul data-nativedroid-plugin='cards'>
-
                     <li data-cards-type='text'>
-                        <h5>Name of Event</h5>
-                        <p><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
-                        <p><small>Venue Name</small></p>
-                        <p><small>33 Post st, San Francisco, 94108</small></p>
+                        <h5 id="eventPageEventName">Name of Event</h5>
+                        <p id="eventPageEventDate"><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
+                        <p id="eventPageEventLocation"><small>Venue Name</small></p>
+                        <p id="eventPageEventVenue"><small>33 Post st, San Francisco, 94108</small></p>
                     </li>
-
-                    <li data-cards-type='text'>
-                        <h1>Default Card</h1>
-                        <h2>Subtitle of a default card</h2>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nec sapien eu lorem condimentum mollis vel vel mauris.Proin dolor libero, ultricies quis semper eu, bibendum nec quam. Sed pellentesque, nunc vitae ornare tempus, turpis nisl aliquam nisl, vel faucibus neque magna eu odio. Fusce venenatis sem vitae arcu lacinia tincidunt. Quisque ornare sollicitudin mauris, adipiscing auctor magna commodo vel. Praesent ipsum diam, feugiat ut vulputate eget, congue id lorem. Mauris sollicitudin venenatis aliquam. Aliquam interdum orci a orci posuere fermentum. Vestibulum placerat tristique sem, eu pretium nisl feugiat in. Phasellus non mi mi. Proin porta metus in nulla fringilla non adipiscing risus ullamcorper.
-                        </p>
-                    </li>
-
                 </ul>
 
-                <!--
-                <div id="basicInfo">
+                <form>
                     <ul data-role="listview" data-inset="true">
                         <li>
-                            <h5>Name of Event</h5>
-                        </li>
+                            <fieldset class="ui-grid-a">
 
-                        <li>
-                            <p><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
-                            <p><small>Venue Name</small></p>
-                            <p><small>33 Post st, San Francisco, 94108</small></p>
-                        </li>
+                                        <div class="ui-block-a">
+                                            <button id="inviteFansButton" type="button" data-theme="b" onclick="toStub()">
+                                                Invite Fans
+                                            </button>
+                                        </div>
 
+                                        <div class="ui-block-b">
+                                            <button id="editEventButton" type="button" data-theme="b" onclick="toStub">
+                                                Add List
+                                            </button>
+                                        </div>
+
+                            </fieldset>
+                        </li>
                     </ul>
-                </div>
-
-                <div>
-
-                <div id="eventDescription">
-                    
-                    <ul data-role="listview" data-inset="true">
-                    
-                        <li >
-                            <label>Description:</label>
-                            <p id="eventDescription">yeah!</p>
-                        </li>
-
-                    </ul>
-
-                </div>
-            -->
+                </form>
         </div> 
     </div>
 
@@ -279,7 +259,7 @@
     </div>
     
     <script type="text/javascript">
-        var eventsDB = {};
+        var eventsDB = Array(10);
         
         function EventObj(name, date, location, venue) {
             this.name = name;
@@ -317,20 +297,54 @@
             document.getElementById("eventFormVenue").value = '';
             document.getElementById("eventFormTour").value = '';
             window.location = "#dashboard";
+            //alert("hi");
         }
+
+        
+        function newEvent(e){
+            
+            name = document.getElementById("eventFormName").value;
+            date = document.getElementById("eventFormDate").value;
+            locations = document.getElementById("eventFormLocation").value;
+            venue = document.getElementById("eventFormVenue").value;
+            
+            var myNewEvent = new EventObj(name,date,locations,venue);
+            
+            eventsDB[0] = myNewEvent;
+
+            document.getElementById("eventPageEventName").innerHTML = name;
+            document.getElementById("eventPageEventDate").innerHTML = date;
+            document.getElementById("eventPageEventLocation").innerHTML = locations;
+            document.getElementById("eventPageEventVenue").innerHTML = venue;
+            
+            /*
+            alert(myNewEvent.name);
+            alert(eventsDB[0].name);
+            */
+            //alert(eventsDB[0].date);
+            
+            window.location = "#eventPage"; 
+            e.preventDefault(); 
+        }
+        
+        
+        function toDashboard(){
+            //cancelEvent();
+            window.location = "#dashboard";
+        }
+
+        function toStub(){
+            //cancelEvent();
+            window.location = "#stub";
+            //alert(myNewEvent.name);
+            //alert(eventsDB[0].name);
+        }
+        
         
         
         
     </script>
 
-    <script type="text/javascript">
-        function createEvent() {
-            //window.location = "#Dashboard";
-            alert("hi"); 
-        }
-
-
-    </script>
 
     </body>
 </html>

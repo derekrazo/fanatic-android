@@ -25,6 +25,51 @@
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
         <script src="js/nativedroid.script.js"></script>
+        
+        <script>
+            var eventsDB = Array(10);
+        
+            function EventObj(name, date, location, venue) {
+                this.name = name;
+                this.date = date;
+                this.location = location;
+                this.venue = venue;
+                this.tour = '';
+            }
+        
+            var fansDB = [];
+        
+            function FanObj(email) {
+                this.name = '';
+                this.email = email;
+                this.events = {};
+            }
+        
+            function prepopulateDBs() {
+                var fan1 = new FanObj('johnsmith@mail.com');
+                fan1.name = 'John Smith';
+                fan1.events = {'San Diego':3, 'LA':1};
+                fansDB.push(fan1);
+            
+                var fan2 = new FanObj('susiepark@mail.com');
+                fan2.name = 'Susie Park';
+                fan2.events = {'San Diego':2};
+                fansDB.push(fan2);
+            
+                var fan3 = new FanObj('ninjasarecool@mail.com');
+                fan3.events = {'NorCal':1};
+                fansDB.push(fan3);
+            
+                var fan4 = new FanObj('lee1987@mail.com');
+                fan4.events = {'NorCal':5, 'LA':1};
+                fansDB.push(fan4);
+            
+                var fan5 = new FanObj('penguin999@mail.com');
+                fan5.events = {'San Diego': 1};
+                fansDB.push(fan5); 
+            }
+            
+        </script>
 
     
     </head>
@@ -66,7 +111,7 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#stub" data-ajax="false" data-transition="slide">
+					<a href="#fansPage" data-ajax="false" data-transition="slide">
 					   <i class='icon-group'></i>
 					   Fans &amp; Groups
 					</a>
@@ -271,6 +316,29 @@
                 </form>
         </div> 
     </div>
+    
+    
+    <!-- Fans Page -->
+    <div id="fansPage" data-role="page" data-theme='b'>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+        
+        <ul id="fansUL" data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li >
+                    <a href="#newEventForm" data-ajax="true" data-transition="slide">
+                       <i class='icon-calendar'></i>
+                       Create New Event
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
 
 
     <!-- Not implemented yet stub page. Delete later-->
@@ -290,15 +358,13 @@
     </div>
     
     <script type="text/javascript">
-        var eventsDB = Array(10);
         
-        function EventObj(name, date, location, venue) {
-            this.name = name;
-            this.date = date;
-            this.location = location;
-            this.venue = venue;
-            this.tour = '';
+        // On initialization call these functions
+        init() {
+            prepopulateDBs();
+            alert('hi');
         }
+       
         
         function submitEvent() {
             var name = document.getElementById("eventFormName").value;
@@ -367,6 +433,15 @@
             
             window.location = "#eventPage"; 
             e.preventDefault(); 
+        }
+        
+        createFansList() {
+            var ul = document.getElementById("fansUL");
+            for (var i = 0; i < fansDB.length, i++) {
+                var li = document.createElement('li');
+                li.innerHTML = i;
+                ul.appendChild(li);
+            }
         }
         
         

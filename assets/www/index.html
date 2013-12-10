@@ -694,7 +694,7 @@
                     <h4>Please sign in with your name and email!</h4>
                     <li data-role="fieldcontain">
                         <label for="fanName">Name:</label>
-                        <input type="text" name="fanName" id="fanName" value="" data-clear-btn="true" placeholder="required">
+                        <input type="text" name="fanName" id="fanName" value="" data-clear-btn="true" placeholder="optional">
                     </li>
 
                     <li data-role="fieldcontain">
@@ -703,19 +703,19 @@
                     </li>
 
                     <li>
-                       <div id="eventFormIncomplete" class="message error" style="display:none;">
+                       <div id="fanSignInIncomplete" class="message error" style="display:none;">
                             <i class='icon-exclamation-sign'></i>
                             <p>Please complete required fields.</p>
                         </div>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
+                                <button id="submitFanForm" type="button" data-theme="b" onclick="submitSignIn()">
                                     <!--<a href="#confirmEventForm" data-role="button" data-transition="slide"></a>-->
                                     Submit
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <button id="cancel" type="button" data-theme="b" onclick="cancelEvent()">
+                                <button id="cancelFanForm" type="button" data-theme="b" onclick="cancelSignIn()">
                                     <!--<a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse"></a>-->
                                     Cancel
                                 </button>
@@ -729,6 +729,28 @@
 
     </div>    
     
+    <!-- Confirm Fan Sign-In -->
+    <div id="confirmFanSignIn" data-role="page" data-theme='b'>
+
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
 
     <!-- Not implemented yet stub page. Delete later-->
     <div id="stub" data-role="page" data-theme='b'>
@@ -923,6 +945,91 @@
             clearMessage();
             
             window.location = "#composeNewMessage"; 
+            e.preventDefault(); 
+        }
+        
+        function submitSignIn() 
+        {
+            var name = document.getElementById("fanName").value;
+            var email = document.getElementById("fanEmail").value;
+            
+            if (!(email == '')) {        
+                document.getElementById("fanName").innerHTML = name;
+                document.getElementById("fanEmail").innerHTML = email;
+                                         
+                document.getElementById("fanSignInIncomplete").style.display = "none";                
+                window.location = "#confirmFanSignIn";
+            } else {
+                document.getElementById("fanSignInIncomplete").style.display = "block";
+            }
+        }
+        
+        function clearSignIn() 
+        {
+            document.getElementById("fanName").value = '';
+            document.getElementById("fanEmail").value = '';
+
+        }
+
+        function cancelSignIn() 
+        {
+            clearSignIn();
+            window.location = "#eventFeed";
+        }
+        
+        function fanSignInAgain()
+        {
+          clearSignIn();
+          window.location="#fanSignIn";
+        }
+        
+        function confirmSignIn(e)
+        {
+            
+            name = document.getElementById("fanName").value;
+            email = document.getElementById("fanEmail").value;
+            var inDB = -1;
+            
+            for (var i = 0; i < fansDB.length; i++) 
+            {
+              if (fansDB[i].email==email)
+              {
+                  inDB=i;
+                  break;
+              }
+            }
+
+            if (inDB>-1)
+            {
+              var myNewFan = fansDB[inDB];
+              if (name!=myNewFan.name && name!='')
+              {
+                myNewFan.name=name;
+              }
+            }
+            else
+            {
+              var myNewFan = new FanObj(email);
+              myNewFan.name=name;
+            }
+             
+            if (currentEvent.location in myNewFan.labels)
+            {
+              myNewFan.labels.(currentEvent.location)+=1;
+            }
+            else
+            {
+              myNewFan.labels.(currentEvent.location)=1;
+            }
+            
+            fansDB.push(myNewFan);
+
+            document.getElementById("confirmedFanName").innerHTML = name;
+            document.getElementById("confirmedFanEmail").innerHTML = email;
+            
+            clearSignIn();
+            
+            window.location = "#confirmedFanSignIn"; 
             e.preventDefault(); 
         }
         

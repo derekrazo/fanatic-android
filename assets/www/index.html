@@ -417,7 +417,7 @@
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <button id="cMessage" type="button" data-theme="b" onclick="cMessage()">
+                                <button id="cancelMsg" type="button" data-theme="b" onclick="cMessage()">
                                     <!--<a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse"></a>-->
                                     Cancel
                                 </button>
@@ -672,10 +672,9 @@
             }
         }
         
-        function createToList() {
+        function createToList() {   
             var myLI = document.getElementById("mailCheckboxesLI");
             myLI.innerHTML = '';
-            
             
             var input1 = '<input type="checkbox" name="checkbox-';
             var input2 = 'a" id="checkbox-';
@@ -683,7 +682,6 @@
             var label1 = '<label for="checkbox-';
             var label2 = 'ab">';
             var label3 = '</label>';
-            
         
             for (var i = 0; i < locationsDB.length; i++) {
                 var locName = locationsDB[i];
@@ -694,8 +692,7 @@
         
         }
         
-        function uncheckAll()
-        {        
+        function uncheckAll() {        
           for (var i = 0; i < locationsDB.length; i++) {
             var checkboxId = 'checkbox-' + i + 'ab';
             document.getElementById(checkboxId).checked = false;
@@ -704,23 +701,13 @@
         
         function clearMessage() {
             document.getElementById("messageSubject").value = '';
-            document.getElementById("messageText").text = '';      
+            document.getElementById("messageText").value = '';      
             uncheckAll();
 
         }
 
-        function cMessage() {
-            alert('howdy');
-            
-            document.getElementById("messageSubject").value = '';
-            
-            alert('hi');
-            
-            document.getElementById("messageText").value = '';      
-            
-            alert('dsakfj');
-            
-            uncheckAll();
+        function cMessage() { 
+            clearMessage();
             window.location = "#dashboard";
         }
 

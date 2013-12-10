@@ -25,6 +25,13 @@
         <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
         <script src="js/nativedroid.script.js"></script>
+        
+        
+        <script src="js/util.js"></script>
+        
+        <script>
+            prepopulateDB();
+        </script>
 
     
     </head>
@@ -66,7 +73,7 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#fansPage" data-ajax="false" data-transition="slide">
+					<a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
 					   <i class='icon-group'></i>
 					   Fans &amp; Groups
 					</a>
@@ -291,9 +298,8 @@
                        Create New Event
                     </a>
                 </li>
-                
-            </ul>
-        </div>
+        </ul>
+    </div>
 
 
     <!-- Not implemented yet stub page. Delete later-->
@@ -313,25 +319,14 @@
     </div>
     
     <script type="text/javascript">
-        var eventsDB = Array(10);
-        
-        function EventObj(name, date, location, venue) {
-            this.name = name;
-            this.date = date;
-            this.location = location;
-            this.venue = venue;
-            this.tour = '';
-        }
-        
-       
-        
+
         function submitEvent() {
             var name = document.getElementById("eventFormName").value;
             var date = document.getElementById("eventFormDate").value;
             var location = document.getElementById("eventFormLocation").value;
             var venue = document.getElementById("eventFormVenue").value;
             var tour = document.getElementById("eventFormTour").value;
-            
+
             if (!((name == '') || (date == '') || (location == '') || (venue == ''))) {        
                 document.getElementById("eventConfirmName").innerHTML = name;
                 document.getElementById("eventConfirmDate").innerHTML = date;
@@ -362,7 +357,6 @@
             document.getElementById("eventFormVenue").value = '';
             document.getElementById("eventFormTour").value = '';
             window.location = "#dashboard";
-            //alert("hi");
         }
 
         
@@ -384,12 +378,6 @@
 
             clearEventForm();
             
-            /*
-            alert(myNewEvent.name);
-            alert(eventsDB[0].name);
-            */
-            //alert(eventsDB[0].date);
-            
             window.location = "#eventPage"; 
             e.preventDefault(); 
         }
@@ -403,11 +391,16 @@
         function toStub(){
             //cancelEvent();
             window.location = "#stub";
-            //alert(myNewEvent.name);
-            //alert(eventsDB[0].name);
         }
         
-        
+        function createFansList() {
+            var myUL = document.getElementById("fansUL");
+            for (var i = 0; i < fansDB.length; i++) {
+                var myLI = document.createElement('li');
+                myLI.innerHTML = i;
+                myUL.appendChild(myLI);
+            }
+        }
         
         
     </script>

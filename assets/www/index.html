@@ -38,26 +38,33 @@
     <body>
 
     <!-- Events feed page -->
-    <div id="eventsFeed" data-role="page" data-theme='b'>
+    <div id="eventFeed" data-role="page" data-theme='b'>
 
         <div data-role="panel" id="mypanel" data-theme="b">
-            <ul data-role="listview">
-                <li data-role="list-divider">Your wishes</li>
-                <li data-icon="coffee"><a href="#">Need a Coffee</a></li>
-                <li data-icon="beer"><a href="#">Have a Beer</a></li>
-                <li data-icon="music"><a href="#">Play Music</a></li>
-                <li data-icon="fire"><a href="#">Make a fire</a></li>
-                <li data-icon="bullhorn"><a href="#">Shout it loud</a></li>
-                <li data-icon="group"><a href="#">Meet friends</a></li>
-                <li data-icon="trophy"><a href="#">Win a Trophy</a></li>
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
             </ul>
         </div>
 
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -133,47 +140,31 @@
 			
 			<ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
 	            <!--<li data-role="list-divider">Demos</li>-->
-	            <li >
-					<a href="#newEventForm" data-ajax="true" data-transition="slide">
-					   <i class='icon-calendar'></i>
-					   Create New Event
-					</a>
-	            </li>
+	            <li ><a href="#newEventForm" data-ajax="true" data-transition="slide">
+					   <i class='icon-calendar'></i>Create New Event</a></li>
 	            <li>
 					<a href="#composeNewMessage" data-ajax="true" data-transition="slide" onclick="createToList()">
-					   <i class='icon-envelope'></i>
-					   Compose Message
-					</a>
+					   <i class='icon-envelope'></i>Compose Message</a>
 	            </li>
 	            <li>
 					<a href="#stub" data-ajax="false" data-transition="slide">
-					   <i class='icon-qrcode'></i>
-					   Scan A Fan
-					</a>
+					   <i class='icon-qrcode'></i>Scan A Fan</a>
 	            </li>
 	            <li>
 					<a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
-					   <i class='icon-group'></i>
-					   Fans &amp; Groups
-					</a>
+					   <i class='icon-group'></i>Fans &amp; Groups</a>
 	            </li>
 	            <li>
 					<a href="#stub" data-ajax="false" data-transition="slide">
-					   <i class='icon-gift'></i>
-					   Rewards
-					</a>
+					   <i class='icon-gift'></i>Rewards</a>
 	            </li>
 	            <li>
 					<a href="#fanSignIn" data-ajax="false" data-transition="slide">
-					   <i class='icon-signin'></i>
-					   Fan Sign-In
-					</a>
+					   <i class='icon-signin'></i>Fan Sign-In</a>
 	            </li>
 	            <li>
 					<a href="#stub" data-ajax="false" data-transition="slide">
-					   <i class='icon-bar-chart'></i>
-					   Fanalytics
-					</a>
+					   <i class='icon-bar-chart'></i>Fanalytics</a>
 	            </li>
 	        </ul>
         </div>
@@ -184,10 +175,31 @@
     <!-- New Event Screen -->
     <div id="newEventForm" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -251,10 +263,31 @@
     <!-- Confirm Event Screen -->
     <div id="confirmEventForm" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -316,10 +349,31 @@
     <!-- Event Page -->
     <div id="eventPage" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -363,10 +417,31 @@
     <!-- Compose New Message Screen -->
     <div id="composeNewMessage" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -435,10 +510,31 @@
     <!-- Confirm Message -->
     <div id="confirmMessageForm" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -490,10 +586,31 @@
     <!-- Fans Page -->
     <div id="fansPage" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
         
@@ -512,10 +629,31 @@
     <!-- Single Fan View -->
     <div id="singleFanView" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
         
@@ -526,10 +664,31 @@
     <!-- Fan Sign In Screen -->
     <div id="fanSignIn" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -578,10 +737,31 @@
     <!-- Not implemented yet stub page. Delete later-->
     <div id="stub" data-role="page" data-theme='b'>
 
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 

@@ -752,6 +752,67 @@
             </ul>
         </div>
 
+        <!-- Fan Sign-In Confirmed -->
+    <div id="confirmedFanSignIn" data-role="page" data-theme='b'>
+
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">  
+                <div class='message success'>
+                  <i class='icon-ok'></i>
+                  <p>Successfully signed in!</p>
+                </div>
+
+                <ul data-nativedroid-plugin='cards'>
+                    <li data-cards-type='text'>
+                        <h5 id="eventPageEventName">Name of Event</h5>
+                        <p id="eventPageEventDate"><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
+                    </li>
+                </ul>
+
+                <form>
+                    <ul data-role="listview" data-inset="true">
+                        <li>
+                            <fieldset class="ui-grid-a">
+                                        <div class="ui-block-b">
+                                            <button id="fanReturnButton" type="button" data-theme="b" onclick="fanSignInAgain">
+                                                Sign In Another Fan
+                                            </button>
+                                        </div>
+
+                            </fieldset>
+                        </li>
+                    </ul>
+                </form>
+        </div> 
+    </div>
+        
     <!-- Not implemented yet stub page. Delete later-->
     <div id="stub" data-role="page" data-theme='b'>
 

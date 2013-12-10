@@ -447,10 +447,18 @@
                                         </li>
         
                                         <li id="mailCheckboxesLI" data-role="fieldcontain">
-                                            <fieldset data-role="controlgroup">
-                                            <input type="checkbox" name="checkbox-1a" id="checkbox-1ab" checked="">
-                                            <label for="checkbox-1ab">Cheetos</label>
-                                            </fieldset>
+                <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="checkbox-sd" id="checkbox-sd">
+                    <label for="checkbox-sd">San Diego</label>
+                </fieldset>
+                <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="checkbox-la" id="checkbox-la">
+                    <label for="checkbox-la">LA</label>
+                </fieldset>
+                <fieldset data-role="controlgroup">
+                    <input type="checkbox" name="checkbox-nc" id="checkbox-nc">
+                    <label for="checkbox-nc">NorCal</label>
+                </fieldset>
                                         </li>
                                     </ul>
                                 </form>
@@ -539,12 +547,12 @@
                     
                     <li >
                         <label>Fans:</label>
-                        <p id="messageConfirmFans">Bay Area</p>
+                        <p id="messageConfirmFans"></p>
                     </li>
                     
                     <li >
                         <label>Subject:</label>
-                        <p id="messageConfirmSubject">My Concert!</p>
+                        <p id="messageConfirmSubject">Mail Subject</p>
                     </li>
                     
                     <li >
@@ -560,7 +568,7 @@
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <a href="#newMessage" data-role="button" data-direction="reverse">
+                                <a href="#composeNewMessage" data-role="button" data-direction="reverse">
                                     Edit
                                 </a>
                             </div>
@@ -607,6 +615,7 @@
  
         
             <ul id="fansUL" data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b" data-theme="b">
+            
             </ul>
 
         </div>
@@ -957,41 +966,35 @@
             e.preventDefault(); 
         }
         
-        function sendMessage() {
-        
-            var subject = document.getElementById("messageSubject").value;
-            var text = document.getElementById("messageText").value;
-
-            if (!((subject == '') || (text == ''))) {        
-                document.getElementById("messageConfirmSubject").innerHTML = subject;
-                document.getElementById("messageConfirmText").innerHTML = text;
-                //document.getElementById("messageConfirmFans").innerHTML = fans;
-                         
-                document.getElementById("messageIncomplete").style.display = "none";                
-                window.location = "#confirmMessageForm";
-            } else {
-                document.getElementById("messageIncomplete").style.display = "block";
-            }
-        }
-        
         function sendMsg() {
             var subject = document.getElementById("messageSubject").value;
-            var text = document.getElementById("messageText").value;
+            var text = document.getElementById("messageText").value;  
+            var street = document.getElementById("checkbox-street").checked;
             
-            alert('1');
+            var checkedSD = document.getElementById("checkbox-sd").checked;
+            var checkedLA = document.getElementById("checkbox-la").checked;
+            var checkedNC = document.getElementById("checkbox-nc").checked;
+
+            var locSelected = (checkedSD || checkedLA || checkedNC);                                  
             
-            var a = document.getElementById("composeMsgStreet");
-            
-            alert('1.5');
-            
-            alert(a.value);
-            
-            alert('2');
-            
-            if (!((subject == '') || (text == ''))) {
+            if (!((subject == '') || (text == '')) && locSelected) {
                 document.getElementById("messageConfirmSubject").innerHTML = subject;
                 document.getElementById("messageConfirmText").innerHTML = text;
-                document.getElementById("messageIncomplete").style.display = "none";                
+                document.getElementById("messageConfirmFans").innerHTML = '';
+                if (checkedSD) {
+                    document.getElementById("messageConfirmFans").innerHTML += ' San Diego ';
+                }
+                if (checkedLA) {
+                     document.getElementById("messageConfirmFans").innerHTML += ' LA ';
+                }
+                if (checkedNC) {
+                    document.getElementById("messageConfirmFans").innerHTML += ' NorCal ';
+                }
+                if (street) {
+                    document.getElementById("messageConfirmFans").innerHTML += ' (Street Team Only) ';
+                }
+                
+                document.getElementById("messageIncomplete").style.display = "none";
                 window.location = "#confirmMessageForm";
             } else {
                 document.getElementById("messageIncomplete").style.display = "block";
@@ -999,6 +1002,7 @@
         }
         
         function createToList() {   
+        /*
             var myLI = document.getElementById("mailCheckboxesLI");
             myLI.innerHTML = '';
             
@@ -1018,7 +1022,8 @@
                 myLI.innerHTML += label1 + i + label2 + locName + label3;
             }
             
-            myLI.innerHTML += '</fieldset>';        
+            myLI.innerHTML += '</fieldset>';   
+            */     
         }
         
         
@@ -1043,18 +1048,17 @@
             window.location = "#dashboard";
         }
 
-        function newMessage(e){
+        function newMessage(e) {        
             var subject = document.getElementById("messageSubject").value;
             var text = document.getElementById("messageText").text;
-            var fans = document.getElementById("messageFans").value;
             
-            var myNewMessage = new MessageObj(subject, text, fans);
-            
-            messageDB[0] = myNewMessage;
+            alert('1');
 
             document.getElementById("messageConfirmSubject").innerHTML = subject;
             document.getElementById("messageConfirmText").innerHTML = text;
             document.getElementById("messageConfirmFans").innerHTML = fans;
+            
+            alert('3');
 
             clearMessage();
             

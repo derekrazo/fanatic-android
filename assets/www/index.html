@@ -140,7 +140,7 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#composeNewMessage" data-ajax="true" data-transition="slide">
+					<a href="#composeNewMessage" data-ajax="true" data-transition="slide" onclick="createToList()">
 					   <i class='icon-envelope'></i>
 					   Compose Message
 					</a>
@@ -381,16 +381,10 @@
                                 <form>
                                     <ul data-role="listview" data-inset="true">
         
-                                        <li data-role="fieldcontain">
+                                        <li id="mailCheckboxesLI" data-role="fieldcontain">
                                             <fieldset data-role="controlgroup">
                                             <input type="checkbox" name="checkbox-1a" id="checkbox-1ab" checked="">
                                             <label for="checkbox-1ab">Cheetos</label>
-                                            <input type="checkbox" name="checkbox-2a" id="checkbox-2ab">
-                                            <label for="checkbox-2ab">Doritos</label>
-                                            <input type="checkbox" name="checkbox-3a" id="checkbox-3ab">
-                                            <label for="checkbox-3ab">Fritos</label>
-                                            <input type="checkbox" name="checkbox-4a" id="checkbox-4ab">
-                                            <label for="checkbox-4ab">Sun Chips</label>
                                             </fieldset>
                                         </li>
                                     </ul>
@@ -690,6 +684,28 @@
                 
                 myUL.appendChild(myLI);
             }
+        }
+        
+        function createToList() {
+            var myLI = document.getElementById("mailCheckboxesLI");
+            myLI.innerHTML = '';
+            
+            
+            var input1 = '<input type="checkbox" name="checkbox-';
+            var input2 = 'a" id="checkbox-';
+            
+            var label1 = '<label for="checkbox-';
+            var label2 = 'ab">';
+            var label3 = '</label>';
+            
+        
+            for (var i = 0; i < locationsDB.length; i++) {
+                var locName = locationsDB[i];
+
+                myLI.innerHTML += input1 + i + input2 + i + 'ab">';
+                myLI.innerHTML += label1 + i + label2 + locName + label3;
+            }
+        
         }
         
         

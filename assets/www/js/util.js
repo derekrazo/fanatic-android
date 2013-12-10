@@ -1,4 +1,4 @@
-var locationsDB = [];
+var locationsDB = ['San Diego', 'LA', 'NorCal'];
 var eventsDB = Array(10);
 var fansDB = [];
 

@@ -61,9 +61,9 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#stub" data-ajax="true" data-transition="slide">
+					<a href="#composeNewMessage" data-ajax="true" data-transition="slide">
 					   <i class='icon-envelope'></i>
-					   Compose
+					   Compose Message
 					</a>
 	            </li>
 	            <li>
@@ -278,6 +278,58 @@
                 </form>
         </div> 
     </div>
+    
+    <!-- Compose New Message Screen -->
+    <div id="composeNewMessage" data-role="page" data-theme='b'>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">   
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="fieldcontain">
+                        <label for="messageSubject">Subject:</label>
+                        <input type="text" name="messageSubject" id="messageSubject" value="" data-clear-btn="true" placeholder="required">
+                    </li>
+                    
+                    <li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-b">
+                    	<label for="textarea2b" class="ui-input-text">Message:</label>
+                    	<break>
+                    	<textarea cols="40" rows="50000000" name="textarea2" id="textarea2b" placeholder="Compose Message Here" class="ui-input-text ui-body-b ui-corner-all ui-shadow-inset"></textarea>
+                    </li>
+                       
+                    <li>
+                       <div id="eventFormIncomplete" class="message error" style="display:none;">
+                            <i class='icon-exclamation-sign'></i>
+                            <p>Please complete required fields.</p>
+                        </div>
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <button id="submitMessage" type="button" data-theme="b" onclick="submitEvent()">
+                                    <!--<a href="#confirmMessage" data-role="button" data-transition="slide"></a>-->
+                                    Submit
+                                </button>
+                            </div>
+                            <div class="ui-block-b">
+                                <button id="cancelMessage" type="button" data-theme="b" onclick="cancelMessage()">
+                                    <!--<a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse"></a>-->
+                                    Cancel
+                                </button>
+                            </div>
+                        </fieldset>
+                    </li>
+
+                </ul>
+            </form>         
+        </div>
+
+    </div>
+    
     
     
     <!-- Fans Page -->

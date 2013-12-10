@@ -1,6 +1,7 @@
 var locationsDB = ['San Diego', 'LA', 'NorCal'];
-var eventsDB = Array(10);
+var eventsDB = [];
 var fansDB = [];
+var currentEvent;
 
 function EventObj(name, date, location, venue) {
     this.name = name;
@@ -38,13 +39,17 @@ function prepopulateDB() {
     var fan5 = new FanObj('penguin999@mail.com');
     fan5.labels = {'San Diego': 1};
     fansDB.push(fan5); 
-    /*
-    var myEvent1 = EventObj("MOB Fall Concert", "Dec. 7 2013 - 7:00 PM", "NorCal", "2224 University Ave.");
+    
+    var myEvent1 = new EventObj("MOB Fall Concert", "Dec. 7 2013 - 7:00 PM", "NorCal", "2224 University Ave.");
     eventsDB.push(myEvent1);
 
-    var myEvent2 = EventObj("MOB Post-Concert BBQ", "Dec. 14 2013 - 12:00 PM", "NorCal", "1245 Arch st.");
+    var myEvent2 = new EventObj("MOB Post-Concert BBQ", "Dec. 14 2013 - 12:00 PM", "NorCal", "1245 Arch st.");
     eventsDB.push(myEvent2);
-    */
+    
+    
+    
+    //let this be last line after db population!
+    currentEvent = eventsDB[0];
 }
 /*
 function createEventFeedList() {   

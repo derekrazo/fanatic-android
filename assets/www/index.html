@@ -232,7 +232,9 @@
             </form>         
         </div>
     </div>
-
+    
+    
+    <!-- Event Page -->
     <div id="eventPage" data-role="page" data-theme='b'>
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
@@ -341,7 +343,7 @@
     
 
     <!-- Confirm Message -->
-    <div id="confirmEventForm" data-role="page" data-theme='b'>
+    <div id="confirmMessageForm" data-role="page" data-theme='b'>
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
@@ -456,14 +458,14 @@
             var location = document.getElementById("eventFormLocation").value;
             var venue = document.getElementById("eventFormVenue").value;
             var tour = document.getElementById("eventFormTour").value;
-
+            
             if (!((name == '') || (date == '') || (location == '') || (venue == ''))) {        
                 document.getElementById("eventConfirmName").innerHTML = name;
                 document.getElementById("eventConfirmDate").innerHTML = date;
                 document.getElementById("eventConfirmLocation").innerHTML = location;
                 document.getElementById("eventConfirmVenue").innerHTML = venue;
                 document.getElementById("eventConfirmTour").innerHTML = tour;
-                         
+                                         
                 document.getElementById("eventFormIncomplete").style.display = "none";                
                 window.location = "#confirmEventForm";
             } else {

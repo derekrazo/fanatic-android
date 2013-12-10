@@ -434,11 +434,17 @@
                 <ul data-role="listview" data-inset="true">
                     <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
                         <div data-role="collapsible">
-                        <h3>Content</h3>
+                        <h3>Recipients</h3>
                             <div class='inset'>
                     
                                 <form>
                                     <ul data-role="listview" data-inset="true">
+                                        <li data-role="fieldcontain">
+                                            <fieldset data-role="controlgroup">
+                                            <input type="checkbox" name="checkbox-street" id="checkbox-street">
+                                            <label for="checkbox-street">Street Team Only</label>
+                                            </fieldset>
+                                        </li>
         
                                         <li id="mailCheckboxesLI" data-role="fieldcontain">
                                             <fieldset data-role="controlgroup">
@@ -662,6 +668,10 @@
                        <i class='icon-signin'></i>  Fan Sign-In</a>
                 </li>
             </ul>
+            
+            
+            
+            
         </div>
 
 
@@ -686,6 +696,13 @@
                     <li data-role="fieldcontain">
                         <label for="fanEmail">Email:</label>
                         <input type="text" name="fanEmail" id="fanEmail" value="" data-clear-btn="true" placeholder="required">
+                    </li>
+                    
+                    <li data-role="fieldcontain">
+                        <fieldset data-role="controlgroup">
+                            <input type="checkbox" name="checkbox-street" id="checkbox-joinStreet">
+                            <label for="checkbox-street">Join Street Team?</label>
+                        </fieldset>
                     </li>
 
                     <li>
@@ -960,6 +977,16 @@
         function sendMsg() {
             var subject = document.getElementById("messageSubject").value;
             var text = document.getElementById("messageText").value;
+            
+            alert('1');
+            
+            var a = document.getElementById("composeMsgStreet");
+            
+            alert('1.5');
+            
+            alert(a.value);
+            
+            alert('2');
             
             if (!((subject == '') || (text == ''))) {
                 document.getElementById("messageConfirmSubject").innerHTML = subject;

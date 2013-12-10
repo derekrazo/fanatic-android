@@ -15,6 +15,7 @@ function FanObj(email) {
     this.name = '';
     this.email = email;
     this.labels = {};
+    this.street = false;
 }
 
 function prepopulateDB() {
@@ -34,6 +35,7 @@ function prepopulateDB() {
             
     var fan4 = new FanObj('lee1987@mail.com');
     fan4.labels = {'NorCal':5, 'LA':1};
+    fan4.street = true;
     fansDB.push(fan4);
     
     var fan5 = new FanObj('penguin999@mail.com');

@@ -164,7 +164,7 @@
 					</a>
 	            </li>
 	            <li>
-					<a href="#stub" data-ajax="false" data-transition="slide">
+					<a href="#fanSignIn" data-ajax="false" data-transition="slide">
 					   <i class='icon-signin'></i>
 					   Fan Sign-In
 					</a>
@@ -523,6 +523,57 @@
         
     </div>
 
+    <!-- Fan Sign In Screen -->
+    <div id="fanSignIn" data-role="page" data-theme='b'>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">   
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <h4>Please sign in with your name and email!</h4>
+                    <li data-role="fieldcontain">
+                        <label for="fanName">Name:</label>
+                        <input type="text" name="fanName" id="fanName" value="" data-clear-btn="true" placeholder="required">
+                    </li>
+
+                    <li data-role="fieldcontain">
+                        <label for="fanEmail">Email:</label>
+                        <input type="text" name="fanEmail" id="fanEmail" value="" data-clear-btn="true" placeholder="required">
+                    </li>
+
+                    <li>
+                       <div id="eventFormIncomplete" class="message error" style="display:none;">
+                            <i class='icon-exclamation-sign'></i>
+                            <p>Please complete required fields.</p>
+                        </div>
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <button id="submitEventForm" type="button" data-theme="b" onclick="submitEvent()">
+                                    <!--<a href="#confirmEventForm" data-role="button" data-transition="slide"></a>-->
+                                    Submit
+                                </button>
+                            </div>
+                            <div class="ui-block-b">
+                                <button id="cancel" type="button" data-theme="b" onclick="cancelEvent()">
+                                    <!--<a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse"></a>-->
+                                    Cancel
+                                </button>
+                            </div>
+                        </fieldset>
+                    </li>
+
+                </ul>
+            </form>         
+        </div>
+
+    </div>    
+    
 
     <!-- Not implemented yet stub page. Delete later-->
     <div id="stub" data-role="page" data-theme='b'>
@@ -621,19 +672,55 @@
             }
         }
         
+        function createToList() {
+            var myLI = document.getElementById("mailCheckboxesLI");
+            myLI.innerHTML = '';
+            
+            
+            var input1 = '<input type="checkbox" name="checkbox-';
+            var input2 = 'a" id="checkbox-';
+            
+            var label1 = '<label for="checkbox-';
+            var label2 = 'ab">';
+            var label3 = '</label>';
+            
+        
+            for (var i = 0; i < locationsDB.length; i++) {
+                var locName = locationsDB[i];
+
+                myLI.innerHTML += input1 + i + input2 + i + 'ab">';
+                myLI.innerHTML += label1 + i + label2 + locName + label3;
+            }
+        
+        }
+        
+        function uncheckAll()
+        {        
+          for (var i = 0; i < locationsDB.length; i++) {
+            var checkboxId = 'checkbox-' + i + 'ab';
+            document.getElementById(checkboxId).checked = false;
+          }
+        }
+        
         function clearMessage() {
             document.getElementById("messageSubject").value = '';
             document.getElementById("messageText").text = '';      
-            document.getElementById("messageFans").value = '';
+            uncheckAll();
 
         }
 
         function cMessage() {
+            alert('howdy');
+            
             document.getElementById("messageSubject").value = '';
-            alert(document.getElementById("messageText").value);
-            alert(document.getElementById("messageText").text);
-            document.getElementById("messageText").text = '';      
-            document.getElementById("messageFans").value = '';
+            
+            alert('hi');
+            
+            document.getElementById("messageText").value = '';      
+            
+            alert('dsakfj');
+            
+            uncheckAll();
             window.location = "#dashboard";
         }
 
@@ -684,28 +771,6 @@
                 
                 myUL.appendChild(myLI);
             }
-        }
-        
-        function createToList() {
-            var myLI = document.getElementById("mailCheckboxesLI");
-            myLI.innerHTML = '';
-            
-            
-            var input1 = '<input type="checkbox" name="checkbox-';
-            var input2 = 'a" id="checkbox-';
-            
-            var label1 = '<label for="checkbox-';
-            var label2 = 'ab">';
-            var label3 = '</label>';
-            
-        
-            for (var i = 0; i < locationsDB.length; i++) {
-                var locName = locationsDB[i];
-
-                myLI.innerHTML += input1 + i + input2 + i + 'ab">';
-                myLI.innerHTML += label1 + i + label2 + locName + label3;
-            }
-        
         }
         
         

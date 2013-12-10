@@ -36,6 +36,85 @@
     
     </head>
     <body>
+
+    <!-- Events feed page -->
+    <div id="eventsFeed" data-role="page" data-theme='b'>
+
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview">
+                <li data-role="list-divider">Your wishes</li>
+                <li data-icon="coffee"><a href="#">Need a Coffee</a></li>
+                <li data-icon="beer"><a href="#">Have a Beer</a></li>
+                <li data-icon="music"><a href="#">Play Music</a></li>
+                <li data-icon="fire"><a href="#">Make a fire</a></li>
+                <li data-icon="bullhorn"><a href="#">Shout it loud</a></li>
+                <li data-icon="group"><a href="#">Meet friends</a></li>
+                <li data-icon="trophy"><a href="#">Win a Trophy</a></li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">  
+
+
+
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+
+                <li data-role="fieldcontain">
+                    <label for="select-choice-1b" class="select"></label>
+                        <select name="select-choice-1" id="select-choice-1b" data-native-menu="true">
+                            <option value="javascript">Upcoming Events</option>
+                            <option value="css">Recently Added Events</option>
+                            <option value="html">Past Events</option>
+                        </select>
+                </li>
+
+                <li>
+                    <div class='inset'>
+                        <h1>MOB Fall Concert</h1>
+                        <p><small>Friday, Dec. 7 2013 at 7:00pm</small></p>
+                        <p><small>Region : NorCal</small></p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class='inset'>
+                        <h1>MOB Post-Concert BBQ</h1>
+                        <p><small>Friday, Dec. 14 2013 at 12:00pm</small></p>
+                        <p><small>Region : NorCal</small></p>
+                    </div>
+                </li>
+
+                <form>
+                    <ul data-role="listview">
+                        <li>
+                            <fieldset>
+
+                                        <div>
+                                            <button id="inviteFansButton" type="button" data-theme="b" onclick="">
+                                                Create New Event
+                                            </button>
+                                        </div>
+
+                            </fieldset>
+                        </li>
+                    </ul>
+                </form>
+
+                
+        </ul>
+            
+        </div> 
+    </div>
+
+
         
     <!-- Dashboard -->
     <div id="dashboard" data-role="page" data-theme='b'>

@@ -38,4 +38,33 @@ function prepopulateDB() {
     var fan5 = new FanObj('penguin999@mail.com');
     fan5.labels = {'San Diego': 1};
     fansDB.push(fan5); 
+    /*
+    var myEvent1 = EventObj("MOB Fall Concert", "Dec. 7 2013 - 7:00 PM", "NorCal", "2224 University Ave.");
+    eventsDB.push(myEvent1);
+
+    var myEvent2 = EventObj("MOB Post-Concert BBQ", "Dec. 14 2013 - 12:00 PM", "NorCal", "1245 Arch st.");
+    eventsDB.push(myEvent2);
+    */
 }
+/*
+function createEventFeedList() {   
+    var myUL = document.getElementById("fansUL");
+            myUL.innerHTML = '';
+            var h1 = '<a href="#singleFanView" data-ajax="true" data-transition="slide" onclick="testFunc(\'';
+            var h2 = '\')">'
+            var h3 = '</a>';
+            for (var i = 0; i < fansDB.length; i++) {
+                var fan = fansDB[i];
+                var myLI = document.createElement('li');
+                
+                if (fan.name !== '') {
+                    myLI.innerHTML =  h1 + fan.email + h2 + fan.email + ' (' + fan.name + ')' + h3;
+                } else {
+                    myLI.innerHTML = h1 + fan.email + h2 + fan.email + h3;
+                }
+                
+                myUL.appendChild(myLI);
+            }                
+}
+
+*/

@@ -40,7 +40,7 @@
     <!-- Events feed page -->
     <div id="eventFeed" data-role="page" data-theme='b'>
 
-        <div data-role="panel" id="mypanel" data-theme="b">
+         <div data-role="panel" id="mypanel" data-theme="b">
             <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
                 <!--<li data-role="list-divider">Demos</li>-->
                 <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
@@ -77,15 +77,15 @@
                 <li data-role="fieldcontain">
                     <label for="select-choice-1b" class="select"></label>
                         <select name="select-choice-1" id="select-choice-1b" data-native-menu="true">
-                            <option value="javascript">Upcoming Events</option>
-                            <option value="css">Recently Added Events</option>
-                            <option value="html">Past Events</option>
+                            <option value="Upcoming Events">Upcoming Events</option>
+                            <option value="Recently Added Events">Recently Added Events</option>
+                            <option value="Past Events">Past Events</option>
                         </select>
                 </li>
 
                 <li>
                     <div class='inset'>
-                        <h1>MOB Fall Concert</h1>
+                        <h1 id="">MOB Fall Concert</h1>
                         <p><small>Friday, Dec. 7 2013 at 7:00pm</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
@@ -510,7 +510,7 @@
     <!-- Confirm Message -->
     <div id="confirmMessageForm" data-role="page" data-theme='b'>
 
-        <div data-role="panel" id="mypanel" data-theme="b">
+         <div data-role="panel" id="mypanel" data-theme="b">
             <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
                 <!--<li data-role="list-divider">Demos</li>-->
                 <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
@@ -586,7 +586,7 @@
     <!-- Fans Page -->
     <div id="fansPage" data-role="page" data-theme='b'>
 
-        <div data-role="panel" id="mypanel" data-theme="b">
+         <div data-role="panel" id="mypanel" data-theme="b">
             <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
                 <!--<li data-role="list-divider">Demos</li>-->
                 <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
@@ -605,31 +605,27 @@
                 </li>
             </ul>
         </div>
-
-
-        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
-            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
-            <h1>Fanatic</h1>
-        </div>
         
-        <ul id="fansUL" data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
-                <!--<li data-role="list-divider">Demos</li>-->
-                <li >
-                    <a href="#newEventForm" data-ajax="true" data-transition="slide">
-                       <i class='icon-calendar'></i>
-                       Create New Event
-                    </a>
-                </li>
-        </ul>
+
+        <div data-role="content">   
+            <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+                <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+                <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+                <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+                <h1>Fanatic</h1>
+            </div>
+        
+            <ul id="fansUL" data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b" data-theme="b">
+            </ul>
+
+        </div>
     </div>
     
     
     <!-- Single Fan View -->
     <div id="singleFanView" data-role="page" data-theme='b'>
 
-        <div data-role="panel" id="mypanel" data-theme="b">
+         <div data-role="panel" id="mypanel" data-theme="b">
             <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
                 <!--<li data-role="list-divider">Demos</li>-->
                 <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
@@ -889,6 +885,7 @@
             myLI.innerHTML += '</fieldset>';        
         }
         
+        
         function uncheckAll() {        
           for (var i = 0; i < locationsDB.length; i++) {
             var checkboxId = 'checkbox-' + i + 'ab';
@@ -942,8 +939,8 @@
         function createFansList() {
             var myUL = document.getElementById("fansUL");
             myUL.innerHTML = '';
-            var h1 = '<a href="#singleFanView" data-ajax="true" data-transition="slide" onclick="testFunc(\'';
-            var h2 = '\')">'
+            var h1 = '<a href="#singleFanView" data-ajax="false" onclick="testFunc(\'';
+            var h2 = '\')">';
             var h3 = '</a>';
             for (var i = 0; i < fansDB.length; i++) {
                 var fan = fansDB[i];
@@ -957,6 +954,8 @@
                 
                 myUL.appendChild(myLI);
             }
+
+            //document.getElementById("fansPage").trigger('create');
         }
         
         

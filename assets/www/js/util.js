@@ -1,3 +1,4 @@
+var locationsDB = [];
 var eventsDB = Array(10);
 var fansDB = [];
 

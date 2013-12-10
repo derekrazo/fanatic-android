@@ -292,31 +292,40 @@
         <div data-role="content">   
             <form>
                 <ul data-role="listview" data-inset="true">
+                    <div class="ui-select"><a href="#" role="button" aria-haspopup="true" data-theme="c" class="ui-btn ui-btn-icon-right ui-btn-corner-all ui-shadow ui-btn-up-c">
+                    </span></a><select name="select-choice-9" id="select-choice-9" multiple="multiple" data-native-menu="false" tabindex="-1">
+						<option>Select Recipient Fans</option>
+						<option value="northern cal">NorCal</option>
+						<option value="socal">SoCal</option>
+						<option value="arizona">Arizona</option>
+						<option value="nevada">Nevada</option>
+					</select></div>
+                    
                     <li data-role="fieldcontain">
                         <label for="messageSubject">Subject:</label>
                         <input type="text" name="messageSubject" id="messageSubject" value="" data-clear-btn="true" placeholder="required">
                     </li>
                     
                     <li data-role="fieldcontain" class="ui-field-contain ui-body ui-br ui-li ui-li-static ui-btn-up-b">
-                    	<label for="textarea2b" class="ui-input-text">Message:</label>
+                    	<label for="messageText" class="ui-input-text">Message:</label>
                     	<break>
-                    	<textarea cols="40" rows="50000000" name="textarea2" id="textarea2b" placeholder="Compose Message Here" class="ui-input-text ui-body-b ui-corner-all ui-shadow-inset"></textarea>
+                    	<textarea cols="40" rows="1000" name="textOfMessage" id="messageText" placeholder="Compose Message Here" class="ui-input-text ui-body-b ui-corner-all ui-shadow-inset"></textarea>
                     </li>
                        
                     <li>
-                       <div id="eventFormIncomplete" class="message error" style="display:none;">
+                       <div id="messageIncomplete" class="message error" style="display:none;">
                             <i class='icon-exclamation-sign'></i>
                             <p>Please complete required fields.</p>
                         </div>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="submitMessage" type="button" data-theme="b" onclick="submitEvent()">
+                                <button id="sendMessage" type="button" data-theme="b" onclick="sendMessage()">
                                     <!--<a href="#confirmMessage" data-role="button" data-transition="slide"></a>-->
                                     Submit
                                 </button>
                             </div>
                             <div class="ui-block-b">
-                                <button id="cancelMessage" type="button" data-theme="b" onclick="cancelMessage()">
+                                <button id="cMessage" type="button" data-theme="b" onclick="cMessage()">
                                     <!--<a href="#dashboard" data-role="button" data-transition="slide" data-direction="reverse"></a>-->
                                     Cancel
                                 </button>
@@ -330,6 +339,60 @@
 
     </div>
     
+
+    <!-- Confirm Message -->
+    <div id="confirmEventForm" data-role="page" data-theme='b'>
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#dashboard" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">   
+                <div class='message warning'>
+                    <i class='icon-question-sign'></i>
+                    <p>Is this info correct?</p>
+                </div>
+
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    
+                    <li >
+                        <label>Fans:</label>
+                        <p id="messageConfirmFans">Bay Area</p>
+                    </li>
+                    
+                    <li >
+                        <label>Subject:</label>
+                        <p id="messageConfirmSubject">My Concert!</p>
+                    </li>
+                    
+                    <li >
+                        <label>Message:</label>
+                        <p id="messageConfirmText">January 1, 2000</p>
+                    </li>
+                    
+                    <li>
+                        <fieldset class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <button id="confirmButton" type="button" data-theme="b" onclick="newMessage()">
+                                    Confirm
+                                </button>
+                            </div>
+                            <div class="ui-block-b">
+                                <a href="#newMessage" data-role="button" data-direction="reverse">
+                                    Edit
+                                </a>
+                            </div>
+                        </fieldset>
+                    </li>
+
+                </ul>
+            </form>         
+        </div>
+    </div>
     
     
     <!-- Fans Page -->
@@ -434,6 +497,57 @@
             e.preventDefault(); 
         }
         
+        function sendMessage() {
+            var subject = document.getElementById("messageSubject").value;
+            var text = document.getElementById("messageText").value;
+            var fans = document.getElementById("messageFans").value;
+
+            if (!((fans == '') || (subject == '') || (text == ''))) {        
+                document.getElementById("messageConfirmSubject").innerHTML = subject;
+                document.getElementById("messageConfirmText").innerHTML = text;
+                document.getElementById("messageConfirmFans").innerHTML = fans;
+                         
+                document.getElementById("messageIncomplete").style.display = "none";                
+                window.location = "#confirmMessage";
+            } else {
+                document.getElementById("messageIncomplete").style.display = "block";
+            }
+        }
+        
+        function clearMessage() {
+            document.getElementById("messageSubject").value = '';
+            document.getElementById("messageText").text = '';      
+            document.getElementById("messageFans").value = '';
+
+        }
+
+        function cMessage() {
+            document.getElementById("messageSubject").value = '';
+            alert(document.getElementById("messageText").value);
+            alert(document.getElementById("messageText").text);
+            document.getElementById("messageText").text = '';      
+            document.getElementById("messageFans").value = '';
+            window.location = "#dashboard";
+        }
+
+        function newMessage(e){
+            var subject = document.getElementById("messageSubject").value;
+            var text = document.getElementById("messageText").text;
+            var fans = document.getElementById("messageFans").value;
+            
+            var myNewMessage = new MessageObj(subject, text, fans);
+            
+            messageDB[0] = myNewMessage;
+
+            document.getElementById("messageConfirmSubject").innerHTML = subject;
+            document.getElementById("messageConfirmText").innerHTML = text;
+            document.getElementById("messageConfirmFans").innerHTML = fans;
+
+            clearMessage();
+            
+            window.location = "#composeNewMessage"; 
+            e.preventDefault(); 
+        }
         
         function toDashboard(){
             //cancelEvent();

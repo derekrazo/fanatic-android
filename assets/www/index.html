@@ -411,8 +411,8 @@
                         </div>
                         <fieldset class="ui-grid-a">
                             <div class="ui-block-a">
-                                <button id="sendMessage" type="button" data-theme="b" onclick="sendMessage()">
-                                    <!--<a href="#confirmMessage" data-role="button" data-transition="slide"></a>-->
+                                <button id="sendMessage" type="button" data-theme="b" onclick="sendMsg()">
+                                    <!--<a href="#confirmMessageForm" data-role="button" data-transition="slide"></a>-->
                                     Submit
                                 </button>
                             </div>
@@ -656,17 +656,31 @@
         }
         
         function sendMessage() {
+        
             var subject = document.getElementById("messageSubject").value;
             var text = document.getElementById("messageText").value;
-            var fans = document.getElementById("messageFans").value;
 
-            if (!((fans == '') || (subject == '') || (text == ''))) {        
+            if (!((subject == '') || (text == ''))) {        
                 document.getElementById("messageConfirmSubject").innerHTML = subject;
                 document.getElementById("messageConfirmText").innerHTML = text;
-                document.getElementById("messageConfirmFans").innerHTML = fans;
+                //document.getElementById("messageConfirmFans").innerHTML = fans;
                          
                 document.getElementById("messageIncomplete").style.display = "none";                
-                window.location = "#confirmMessage";
+                window.location = "#confirmMessageForm";
+            } else {
+                document.getElementById("messageIncomplete").style.display = "block";
+            }
+        }
+        
+        function sendMsg() {
+            var subject = document.getElementById("messageSubject").value;
+            var text = document.getElementById("messageText").value;
+            
+            if (!((subject == '') || (text == ''))) {
+                document.getElementById("messageConfirmSubject").innerHTML = subject;
+                document.getElementById("messageConfirmText").innerHTML = text;
+                document.getElementById("messageIncomplete").style.display = "none";                
+                window.location = "#confirmMessageForm";
             } else {
                 document.getElementById("messageIncomplete").style.display = "block";
             }
@@ -683,13 +697,16 @@
             var label2 = 'ab">';
             var label3 = '</label>';
         
+            myLI.innerHTML += '<fieldset data-role="controlgroup">';
+        
             for (var i = 0; i < locationsDB.length; i++) {
                 var locName = locationsDB[i];
 
                 myLI.innerHTML += input1 + i + input2 + i + 'ab">';
                 myLI.innerHTML += label1 + i + label2 + locName + label3;
             }
-        
+            
+            myLI.innerHTML += '</fieldset>';        
         }
         
         function uncheckAll() {        
@@ -702,11 +719,13 @@
         function clearMessage() {
             document.getElementById("messageSubject").value = '';
             document.getElementById("messageText").value = '';      
-            uncheckAll();
+            
+            var myLI = document.getElementById("mailCheckboxesLI");
+            myLI.innerHTML = '';
 
         }
 
-        function cMessage() { 
+        function cMessage() {         
             clearMessage();
             window.location = "#dashboard";
         }

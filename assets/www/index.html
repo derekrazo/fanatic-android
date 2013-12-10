@@ -294,14 +294,31 @@
         <div data-role="content">   
             <form>
                 <ul data-role="listview" data-inset="true">
-                    <div class="ui-select"><a href="#" role="button" aria-haspopup="true" data-theme="c" class="ui-btn ui-btn-icon-right ui-btn-corner-all ui-shadow ui-btn-up-c">
-                    </span></a><select name="select-choice-9" id="select-choice-9" multiple="multiple" data-native-menu="false" tabindex="-1">
-						<option>Select Recipient Fans</option>
-						<option value="northern cal">NorCal</option>
-						<option value="socal">SoCal</option>
-						<option value="arizona">Arizona</option>
-						<option value="nevada">Nevada</option>
-					</select></div>
+                    <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+                        <div data-role="collapsible">
+                        <h3>Content</h3>
+                            <div class='inset'>
+                    
+                                <form>
+                                    <ul data-role="listview" data-inset="true">
+        
+                                        <li data-role="fieldcontain">
+                                            <fieldset data-role="controlgroup">
+                                            <input type="checkbox" name="checkbox-1a" id="checkbox-1ab" checked="">
+                                            <label for="checkbox-1ab">Cheetos</label>
+                                            <input type="checkbox" name="checkbox-2a" id="checkbox-2ab">
+                                            <label for="checkbox-2ab">Doritos</label>
+                                            <input type="checkbox" name="checkbox-3a" id="checkbox-3ab">
+                                            <label for="checkbox-3ab">Fritos</label>
+                                            <input type="checkbox" name="checkbox-4a" id="checkbox-4ab">
+                                            <label for="checkbox-4ab">Sun Chips</label>
+                                            </fieldset>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                     
                     <li data-role="fieldcontain">
                         <label for="messageSubject">Subject:</label>

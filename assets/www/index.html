@@ -33,6 +33,17 @@
             prepopulateDB();
         </script>
 
+        <style type="text/css">
+            .ui-header.ui-fixed-hidden {
+                padding: 0;
+                border-top-width: 1px;
+                border-bottom-width: 2px;
+            }
+            .ui-header-fixed > .ui-btn-icon-notext{
+                top:6px
+            } 
+        </style>
+
     
     </head>
     <body>
@@ -84,7 +95,97 @@
                 <li>
                     <div class='inset'>
                         <h1 id="">MOB Fall Concert</h1>
-                        <p><small>Friday, Dec. 7 2013 at 7:00pm</small></p>
+                        <p><small>Friday, Dec. 12 2013 at 7:00pm</small></p>
+                        <p><small>Region : NorCal</small></p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class='inset'>
+                        <h1>MOB Post-Concert BBQ</h1>
+                        <p><small>Friday, Dec. 14 2013 at 12:00pm</small></p>
+                        <p><small>Region : NorCal</small></p>
+                    </div>
+                </li>
+
+                <form>
+                    <ul data-role="listview">
+                        <li>
+                            <fieldset>
+
+                                        <div>
+                                            <button id="eventFeedNewEventButton" type="button" data-theme="b" onclick="toEventForm()">
+                                                Create New Event
+                                            </button>
+                                        </div>
+
+                            </fieldset>
+                        </li>
+                    </ul>
+                </form>
+
+                
+        </ul>
+            
+        </div> 
+    </div>
+
+    <!-- Events feed page -->
+    <div id="eventFeed2" data-role="page" data-theme='b'>
+
+         <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>  Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>  Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>  Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>  Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">  
+
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+
+                <li data-role="fieldcontain">
+                    <label for="select-choice-1b" class="select"></label>
+                        <select name="select-choice-1" id="select-choice-1b" data-native-menu="true">
+                            <option value="Upcoming Events">Upcoming Events</option>
+                            <option value="Recently Added Events">Recently Added Events</option>
+                            <option value="Past Events">Past Events</option>
+                        </select>
+                </li>
+
+                <li>
+                    <div class='inset'>
+                        <h1 id="">cs160 Presentation</h1>
+                        <p><small>Wednesday, Dec. 10 2013 at 11:00am</small></p>
+                        <p><small>Region : NorCal</small></p>
+                    </div>
+                </li>
+
+                <li>
+                    <div class='inset'>
+                        <h1 id="">MOB Fall Concert</h1>
+                        <p><small>Friday, Dec. 12 2013 at 7:00pm</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
                 </li>
@@ -356,8 +457,8 @@
 
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
-            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
-            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <a href="#eventFeed2" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed2" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
             <h1>Fanatic</h1>
         </div>
 
@@ -1142,6 +1243,11 @@
         function toDashboard(){
             //cancelEvent();
             window.location = "#dashboard";
+        }
+
+        function toEventForm(){
+            //cancelEvent();
+            window.location = "#newEventForm";
         }
 
         function toStub(){

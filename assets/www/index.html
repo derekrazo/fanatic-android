@@ -95,7 +95,7 @@
                 <li>
                     <div class='inset'>
                         <h1 id="">MOB Fall Concert</h1>
-                        <p><small>Friday, Dec. 12 2013 at 7:00pm</small></p>
+                        <p><small>12-12-2013 at 7:00pm</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
                 </li>
@@ -103,7 +103,7 @@
                 <li>
                     <div class='inset'>
                         <h1>MOB Post-Concert BBQ</h1>
-                        <p><small>Friday, Dec. 14 2013 at 12:00pm</small></p>
+                        <p><small>12-14-2013 at 12:00pm</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
                 </li>
@@ -177,7 +177,7 @@
                 <li>
                     <div class='inset'>
                         <h1 id="">cs160 Presentation</h1>
-                        <p><small>Wednesday, Dec. 10 2013 at 11:00am</small></p>
+                        <p><small>12-10-2013 at 11:00am</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
                 </li>
@@ -185,7 +185,7 @@
                 <li>
                     <div class='inset'>
                         <h1 id="">MOB Fall Concert</h1>
-                        <p><small>Friday, Dec. 12 2013 at 7:00pm</small></p>
+                        <p><small>12-12-2013 at 7:00pm</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
                 </li>
@@ -193,7 +193,7 @@
                 <li>
                     <div class='inset'>
                         <h1>MOB Post-Concert BBQ</h1>
-                        <p><small>Friday, Dec. 14 2013 at 12:00pm</small></p>
+                        <p><small>12-14-2013 at 12:00pm</small></p>
                         <p><small>Region : NorCal</small></p>
                     </div>
                 </li>
@@ -1182,6 +1182,9 @@
             if (tour !== '') {
                 myNewEvent.tour = tour;
                 document.getElementById("eventPageEventName").innerHTML = name + ' (' + tour + ')';
+            }
+            else{
+                document.getElementById("eventPageEventName").innerHTML = name;
             }
 
             document.getElementById("eventPageEventDate").innerHTML = date;

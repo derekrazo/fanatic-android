@@ -462,41 +462,49 @@
             <h1>Fanatic</h1>
         </div>
 
-        <div data-role="content">  
-                <img src="http://btenc7unnvpdjzve.zippykid.netdna-cdn.com/wp-content/uploads/2012/01/google-map.jpg" width="device-width" height="200px" style="margin: 0px 0px 0px 6px;" >
-                </img>
+<div data-role="content">
+    <div class="inset">
+        <h1 id="eventPageEventName">Name of Event</h1>
+    </div>
+    <form>
+    <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+        <li>
+            <div class="inset">
+                <p><small>Date:</small></p>
+                <h1 id="eventPageEventDate">Date of Event</h1>
+            </div>
+        </li>
+        <li>
+            <div class="inset">
+                <p><small>Location:</small></p>
+                <h1 id="eventPageEventLocation">Loc of Event</h1>
+            </div>
+        </li>
+        <li>
+            <div class="inset">
+                <p><small>Address:</small></p>
+                <h1 id="eventPageEventVenue">Venue of Event</h1>
+            </div>
+        </li>
 
-                <ul data-nativedroid-plugin='cards'>
-                    <li data-cards-type='text'>
-                        <h5 id="eventPageEventName">Name of Event</h5>
-                        <p id="eventPageEventDate"><small>Fri, Dec 20 at 1:00pm - 6:00pm</small></p>
-                        <p id="eventPageEventLocation"><small>Venue Name</small></p>
-                        <p id="eventPageEventVenue"><small>33 Post st, San Francisco, 94108</small></p>
-                    </li>
-                </ul>
+        <li data>
+            <fieldset class="ui-grid-a">
+                <div class="ui-block-a">
+                    <button id="inviteFansButton" type="button" data-theme="b" onclick="toEventForm()">
+                        Edit
+                    </button>
+                </div>
+                <div class="ui-block-b">
+                    <button id="editEventButton" type="button" data-theme="b" onclick="toFanSignIn()">
+                        Fan Sign In
+                    </button>
+                </div>
+            </fieldset>
+        </li>
+    </ul>
+    </form>
+</div>
 
-                <form>
-                    <ul data-role="listview" data-inset="true">
-                        <li>
-                            <fieldset class="ui-grid-a">
-
-                                        <div class="ui-block-a">
-                                            <button id="inviteFansButton" type="button" data-theme="b" onclick="toStub()">
-                                                Edit
-                                            </button>
-                                        </div>
-
-                                        <div class="ui-block-b">
-                                            <button id="editEventButton" type="button" data-theme="b" onclick="toStub">
-                                                Fan Sign In
-                                            </button>
-                                        </div>
-
-                            </fieldset>
-                        </li>
-                    </ul>
-                </form>
-        </div> 
     </div>
     
     <!-- Compose New Message Screen -->
@@ -1161,16 +1169,21 @@
         
         function newEvent(e){
             
-            name = document.getElementById("eventFormName").value;
-            date = document.getElementById("eventFormDate").value;
-            locations = document.getElementById("eventFormLocation").value;
-            venue = document.getElementById("eventFormVenue").value;
+            var name = document.getElementById("eventFormName").value;
+            var date = document.getElementById("eventFormDate").value;
+            var locations = document.getElementById("eventFormLocation").value;
+            var venue = document.getElementById("eventFormVenue").value;
+            var tour = document.getElementById("eventFormTour").value;
             
             var myNewEvent = new EventObj(name,date,locations,venue);
             
             eventsDB[0] = myNewEvent;
 
-            document.getElementById("eventPageEventName").innerHTML = name;
+            if (tour !== '') {
+                myNewEvent.tour = tour;
+                document.getElementById("eventPageEventName").innerHTML = name + ' (' + tour + ')';
+            }
+
             document.getElementById("eventPageEventDate").innerHTML = date;
             document.getElementById("eventPageEventLocation").innerHTML = locations;
             document.getElementById("eventPageEventVenue").innerHTML = venue;
@@ -1352,6 +1365,11 @@
         function toEventForm(){
             //cancelEvent();
             window.location = "#newEventForm";
+        }
+        
+        function toFanSignIn(){
+            //cancelEvent();
+            window.location = "#fanSignIn";
         }
 
         function toStub(){

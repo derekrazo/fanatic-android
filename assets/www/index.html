@@ -548,18 +548,18 @@
                                         </li>
         
                                         <li id="mailCheckboxesLI" data-role="fieldcontain">
-                <fieldset data-role="controlgroup">
-                    <input type="checkbox" name="checkbox-sd" id="checkbox-sd">
-                    <label for="checkbox-sd">San Diego</label>
-                </fieldset>
-                <fieldset data-role="controlgroup">
-                    <input type="checkbox" name="checkbox-la" id="checkbox-la">
-                    <label for="checkbox-la">LA</label>
-                </fieldset>
-                <fieldset data-role="controlgroup">
-                    <input type="checkbox" name="checkbox-nc" id="checkbox-nc">
-                    <label for="checkbox-nc">NorCal</label>
-                </fieldset>
+                                            <fieldset data-role="controlgroup">
+                                                <input type="checkbox" name="checkbox-sd" id="checkbox-sd">
+                                                <label for="checkbox-sd">San Diego</label>
+                                            </fieldset>
+                                            <fieldset data-role="controlgroup">
+                                                <input type="checkbox" name="checkbox-la" id="checkbox-la">
+                                                <label for="checkbox-la">LA</label>
+                                            </fieldset>
+                                            <fieldset data-role="controlgroup">
+                                                <input type="checkbox" name="checkbox-nc" id="checkbox-nc">
+                                                <label for="checkbox-nc">NorCal</label>
+                                            </fieldset>
                                         </li>
                                     </ul>
                                 </form>
@@ -658,7 +658,7 @@
                     
                     <li >
                         <label>Message:</label>
-                        <p id="messageConfirmText">January 1, 2000</p>
+                        <p id="messageConfirmText">Mail Message</p>
                     </li>
                     
                     <li>
@@ -737,9 +737,9 @@
                     <li>
                         <fieldset class="ui-grid-a">
                            <div class="ui-block-a">
-                                <button id="confirmButton" type="button" data-theme="b" onclick="toDashboard()">
+                                <a href="#eventFeed" data-role="button">
                                     Go Back Home
-                                </button>
+                                </a>
                             </div>
                             <div class="ui-block-b">
                                 <a href="#composeNewMessage" data-role="button">
@@ -786,6 +786,41 @@
 
         <div data-role="content">   
  
+                 <ul data-role="listview" data-inset="true">
+ 
+            <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+                <div data-role="collapsible">
+                    <h3>Filter</h3>
+                        <div class='inset'>
+                            <form>
+                                <ul data-role="listview" data-inset="true">
+                                    <li data-role="fieldcontain">
+                                        <fieldset data-role="controlgroup">
+                                        <input type="checkbox" name="checkbox-street" id="checkbox-street">
+                                        <label for="checkbox-street">Street Team Only</label>
+                                        </fieldset>
+                                    </li>
+    
+                                    <li id="mailCheckboxesLI" data-role="fieldcontain">
+                                        <fieldset data-role="controlgroup">
+                                            <input type="checkbox" name="checkbox-sd" id="checkbox-sd">
+                                            <label for="checkbox-sd">San Diego</label>
+                                        </fieldset>
+                                        <fieldset data-role="controlgroup">
+                                            <input type="checkbox" name="checkbox-la" id="checkbox-la">
+                                            <label for="checkbox-la">LA</label>
+                                        </fieldset>
+                                        <fieldset data-role="controlgroup">
+                                            <input type="checkbox" name="checkbox-nc" id="checkbox-nc">
+                                            <label for="checkbox-nc">NorCal</label>
+                                        </fieldset>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                </ul>
         
             <ul id="fansUL" data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b" data-theme="b">
             
@@ -1216,11 +1251,7 @@
         
         function clearMessage() {
             document.getElementById("messageSubject").value = '';
-            document.getElementById("messageText").value = '';      
-            
-            var myLI = document.getElementById("mailCheckboxesLI");
-            myLI.innerHTML = '';
-
+            document.getElementById("messageText").value = '';   
         }
 
         function cMessage() {         
@@ -1229,18 +1260,14 @@
         }
 
         function newMessage() {        
-            var subject = document.getElementById("messageConfirmSubject").value;
-            var text = document.getElementById("messageConfirmText").text;
+            var subject = document.getElementById("messageConfirmSubject").innerHTML;
+            var text = document.getElementById("messageConfirmText").innerHTML;
+            var fans = document.getElementById("messageConfirmFans").innerHTML;
             
-            alert(subject + ' ' + text);
-            
-            alert('1');
-
             document.getElementById("confirmedSentMsgSubject").innerHTML = subject;
             document.getElementById("confirmedSentMsgText").innerHTML = text;
+            document.getElementById("confirmedSentMsgFans").innerHTML = fans;
             
-            alert('3');
-
             clearMessage();
             
             window.location = "#confirmedMsg"; 
@@ -1311,9 +1338,7 @@
                         
             document.getElementById("confirmedFanName").innerHTML = name;
             document.getElementById("confirmedFanEmail").innerHTML = email;
-            
-            alert('5');
-            
+                        
             clearSignIn();
             
             window.location = "#confirmedFanSignIn"; 
@@ -1321,7 +1346,7 @@
         
         function toDashboard(){
             //cancelEvent();
-            window.location = "#eventsFeed";
+            window.location = "#eventFeed";
         }
 
         function toEventForm(){

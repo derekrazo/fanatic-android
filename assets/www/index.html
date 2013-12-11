@@ -682,6 +682,78 @@
     </div>
     
     
+    <!-- Message Confirmed and Sent -->
+    <div id="confirmedMsg" data-role="page" data-theme='b'>
+
+        <div data-role="panel" id="mypanel" data-theme="b">
+            <ul data-role="listview" data-inset="false" data-icon="false" data-divider-theme="b">
+                <!--<li data-role="list-divider">Demos</li>-->
+                <li ><a href="#newEventForm" data-ajax="false" data-transition="slide">
+                       <i class='icon-calendar'></i>  Create New Event</a></li>
+                <li>
+                    <a href="#composeNewMessage" data-ajax="false" data-transition="slide" onclick="createToList()">
+                       <i class='icon-envelope'></i>  Compose Message</a>
+                </li>
+                <li>
+                    <a href="#fansPage" data-ajax="false" data-transition="slide" onclick="createFansList();">
+                       <i class='icon-group'></i>  Fans &amp; Groups</a>
+                </li>
+                <li>
+                    <a href="#fanSignIn" data-ajax="false" data-transition="slide">
+                       <i class='icon-signin'></i>  Fan Sign-In</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
+        </div>
+
+        <div data-role="content">
+            <div class='message success'>
+                <i class='icon-ok'></i>
+                <p>Message successfully sent!</p>
+            </div>
+            
+            <form>
+                <ul data-role="listview" data-inset="true">
+                    <li >
+                        <label>Sent to Fan Groups:</label>
+                        <p id="confirmedSentMsgFans">SuperFan</p>
+                    </li>
+                    <li >
+                        <label>Subject:</label>
+                        <p id="confirmedSentMsgSubject">Email Subject</p>
+                    </li>
+                    <li >
+                        <label>Message:</label>
+                        <p id="confirmedSentMsgText">EMAIL HERE</p>
+                    </li>
+                    
+                    <li>
+                        <fieldset class="ui-grid-a">
+                           <div class="ui-block-a">
+                                <button id="confirmButton" type="button" data-theme="b" onclick="toDashboard()">
+                                    Go Back Home
+                                </button>
+                            </div>
+                            <div class="ui-block-b">
+                                <a href="#composeNewMessage" data-role="button">
+                                    Send Another Message
+                                </a>
+                            </div>
+                        </fieldset>
+                    </li>
+                </ul>
+            </form>
+        </div> 
+    </div>
+    
+    
     <!-- Fans Page -->
     <div id="fansPage" data-role="page" data-theme='b'>
 
@@ -863,6 +935,13 @@
                        <i class='icon-signin'></i>  Fan Sign-In</a>
                 </li>
             </ul>
+        </div>
+        
+        <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
+            <a href="#mypanel" data-ajax="false" target="_blank" class="ui-btn-left"><i class='icon-ellipsis-vertical' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 10px;"><i class='icon-cog' ></i></a>
+            <a href="#eventFeed" data-ajax="false" target="_blank" class="ui-btn-right" style="margin-right: 40px;"><i class='icon-home' ></i></a>
+            <h1>Fanatic</h1>
         </div>
         
         <div data-role="content">
@@ -1149,22 +1228,22 @@
             window.location = "#dashboard";
         }
 
-        function newMessage(e) {        
-            var subject = document.getElementById("messageSubject").value;
-            var text = document.getElementById("messageText").text;
+        function newMessage() {        
+            var subject = document.getElementById("messageConfirmSubject").value;
+            var text = document.getElementById("messageConfirmText").text;
+            
+            alert(subject + ' ' + text);
             
             alert('1');
 
-            document.getElementById("messageConfirmSubject").innerHTML = subject;
-            document.getElementById("messageConfirmText").innerHTML = text;
-            document.getElementById("messageConfirmFans").innerHTML = fans;
+            document.getElementById("confirmedSentMsgSubject").innerHTML = subject;
+            document.getElementById("confirmedSentMsgText").innerHTML = text;
             
             alert('3');
 
             clearMessage();
             
-            window.location = "#composeNewMessage"; 
-            e.preventDefault(); 
+            window.location = "#confirmedMsg"; 
         }
         
         function submitSignIn() {
@@ -1242,7 +1321,7 @@
         
         function toDashboard(){
             //cancelEvent();
-            window.location = "#dashboard";
+            window.location = "#eventsFeed";
         }
 
         function toEventForm(){
